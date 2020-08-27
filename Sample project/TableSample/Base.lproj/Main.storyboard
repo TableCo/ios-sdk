@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q3n-UN-iFW">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="mg8-V3-EuB">
+            <objects>
+                <viewController id="q3n-UN-iFW" customClass="ViewController" customModule="TestTable" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W09-93-Fka">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fee-g1-EAS">
+                                <rect key="frame" x="30" y="223" width="354" height="450"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyw-6c-oVg">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="97.5"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Register User">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="registerUser:" destination="q3n-UN-iFW" eventType="touchUpInside" id="oOH-VK-34G"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Beu-Hi-4zb">
+                                        <rect key="frame" x="0.0" y="117.5" width="354" height="97.5"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Anonymous User">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="registerAnonimous:" destination="q3n-UN-iFW" eventType="touchUpInside" id="CcZ-wY-sf0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIN-Fg-75f">
+                                        <rect key="frame" x="0.0" y="235" width="354" height="97.5"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Show Conwersation List">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showConversationList:" destination="q3n-UN-iFW" eventType="touchUpInside" id="HDr-ud-wUA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ma0-jt-31P">
+                                        <rect key="frame" x="0.0" y="352.5" width="354" height="97.5"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Logout">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="Logout:" destination="q3n-UN-iFW" eventType="touchUpInside" id="Vjx-X0-wV7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="zyw-6c-oVg" firstAttribute="top" secondItem="fee-g1-EAS" secondAttribute="top" id="7YX-SG-tM5"/>
+                                    <constraint firstAttribute="trailing" secondItem="hIN-Fg-75f" secondAttribute="trailing" id="8Kv-NC-aBs"/>
+                                    <constraint firstItem="Beu-Hi-4zb" firstAttribute="leading" secondItem="fee-g1-EAS" secondAttribute="leading" id="ART-F8-3IU"/>
+                                    <constraint firstAttribute="height" constant="450" id="GDV-09-yzR"/>
+                                    <constraint firstItem="zyw-6c-oVg" firstAttribute="height" secondItem="hIN-Fg-75f" secondAttribute="height" id="IZu-NT-3Ex"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ma0-jt-31P" secondAttribute="trailing" id="J4v-Pu-atj"/>
+                                    <constraint firstItem="Ma0-jt-31P" firstAttribute="leading" secondItem="fee-g1-EAS" secondAttribute="leading" id="NXw-jk-3AW"/>
+                                    <constraint firstItem="zyw-6c-oVg" firstAttribute="leading" secondItem="fee-g1-EAS" secondAttribute="leading" id="RPt-JP-tEv"/>
+                                    <constraint firstAttribute="trailing" secondItem="zyw-6c-oVg" secondAttribute="trailing" id="SyW-bg-Wfb"/>
+                                    <constraint firstItem="hIN-Fg-75f" firstAttribute="leading" secondItem="fee-g1-EAS" secondAttribute="leading" id="a6p-gV-LsR"/>
+                                    <constraint firstItem="Ma0-jt-31P" firstAttribute="top" secondItem="hIN-Fg-75f" secondAttribute="bottom" constant="20" id="hOX-qd-GKn"/>
+                                    <constraint firstItem="hIN-Fg-75f" firstAttribute="top" secondItem="Beu-Hi-4zb" secondAttribute="bottom" constant="20" id="lpU-YL-s1j"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ma0-jt-31P" secondAttribute="bottom" id="phx-sW-1eu"/>
+                                    <constraint firstAttribute="trailing" secondItem="Beu-Hi-4zb" secondAttribute="trailing" id="pjP-IR-FmH"/>
+                                    <constraint firstItem="Beu-Hi-4zb" firstAttribute="top" secondItem="zyw-6c-oVg" secondAttribute="bottom" constant="20" id="rT3-OB-G8P"/>
+                                    <constraint firstItem="zyw-6c-oVg" firstAttribute="height" secondItem="Beu-Hi-4zb" secondAttribute="height" id="tv1-yD-ej7"/>
+                                    <constraint firstItem="zyw-6c-oVg" firstAttribute="height" secondItem="Ma0-jt-31P" secondAttribute="height" id="wR6-sD-NjB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YSL-Bl-HDV" firstAttribute="trailing" secondItem="fee-g1-EAS" secondAttribute="trailing" constant="30" id="bFU-eg-OYc"/>
+                            <constraint firstItem="fee-g1-EAS" firstAttribute="centerY" secondItem="W09-93-Fka" secondAttribute="centerY" id="iXQ-bP-SJy"/>
+                            <constraint firstItem="fee-g1-EAS" firstAttribute="leading" secondItem="YSL-Bl-HDV" secondAttribute="leading" constant="30" id="nLT-jl-N7i"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YSL-Bl-HDV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9L4-5M-TBS" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="75.669642857142847"/>
+        </scene>
+    </scenes>
+</document>
