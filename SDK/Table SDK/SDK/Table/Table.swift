@@ -80,6 +80,23 @@ extension Table {
         navVC.viewControllers = [vc]
         parentViewController.present(navVC, animated: true)
     }
+    
+    public static func updateNotificationToken(token: String, onSuccessTokenCompletion: (() -> Void)?, onFailureCompletion: ((_ errorCode: Int?, _ details: String?) -> Void)?) {
+        
+        Table.instance.networkModel.tryToSendToken(token: token)
+        
+        Table.instance.networkModel.onTokenSuccess = {
+            onSuccessTokenCompletion?()
+        }
+        
+        Table.instance.networkModel.onTokenFailed = { (error) in
+            guard let error = error as NSError? else {
+                onFailureCompletion?(nil, nil)
+                return
+            }
+            onFailureCompletion?(error.code, error.description)
+        }
+    }
 }
 
 //MARK: -Private methods

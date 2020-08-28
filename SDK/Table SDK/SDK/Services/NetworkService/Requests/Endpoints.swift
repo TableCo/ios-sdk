@@ -15,7 +15,7 @@ struct API {
     static let Conversation         = "/conversation?webview=ios"
     
     
-    static let FCMTokenUpdate           = "/user-service/user/add_fcm_device_token"
+    static let NotificationTokenUpdate           = "/user-service/user/add_fcm_device_token"
     static let ConversationTitle        = "/table-service/table/"
     static let OpenTokAPIKey            = "/installation-service/installation/opentok-api-key"
     static let GoogleClientId           = "/installation-service/installation/google-client-id"
