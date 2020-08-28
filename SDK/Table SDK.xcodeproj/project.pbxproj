@@ -47,6 +47,8 @@
 		CE5A7CA024F7F47800E89273 /* TableMainBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5A7C9F24F7F47800E89273 /* TableMainBoard.storyboard */; };
 		CE5A7CA224F7F51F00E89273 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE5A7CA124F7F51F00E89273 /* Assets.xcassets */; };
 		CE5A7CA424F7F5C600E89273 /* ajax.js in Resources */ = {isa = PBXBuildFile; fileRef = CE5A7CA324F7F5C600E89273 /* ajax.js */; };
+		CE6F8EAC24F93AAF002D97F0 /* NotificationTokenRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F8EA924F93AAF002D97F0 /* NotificationTokenRequestModel.swift */; };
+		CE6F8EAD24F93AAF002D97F0 /* NotificationTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F8EAA24F93AAF002D97F0 /* NotificationTokenRequest.swift */; };
 		F39A55B0FDA01191F8A411E6 /* Pods_Table_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7DB4D10A8A7E0D6388A54F /* Pods_Table_SDK.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +98,8 @@
 		CE5A7C9F24F7F47800E89273 /* TableMainBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableMainBoard.storyboard; sourceTree = "<group>"; };
 		CE5A7CA124F7F51F00E89273 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE5A7CA324F7F5C600E89273 /* ajax.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ajax.js; sourceTree = "<group>"; };
+		CE6F8EA924F93AAF002D97F0 /* NotificationTokenRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTokenRequestModel.swift; sourceTree = "<group>"; };
+		CE6F8EAA24F93AAF002D97F0 /* NotificationTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTokenRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +279,7 @@
 		CE5A7C5924F7F3F900E89273 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				CE6F8EA824F93A66002D97F0 /* NotificationsTokenRequest */,
 				CE5A7C5A24F7F3F900E89273 /* GetApiKeyRequest */,
 				CE5A7C5E24F7F3F900E89273 /* Endpoints.swift */,
 				CE5A7C5F24F7F3F900E89273 /* GetHeaderRequest */,
@@ -383,6 +388,15 @@
 				CE5A7C9F24F7F47800E89273 /* TableMainBoard.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		CE6F8EA824F93A66002D97F0 /* NotificationsTokenRequest */ = {
+			isa = PBXGroup;
+			children = (
+				CE6F8EAA24F93AAF002D97F0 /* NotificationTokenRequest.swift */,
+				CE6F8EA924F93AAF002D97F0 /* NotificationTokenRequestModel.swift */,
+			);
+			path = NotificationsTokenRequest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -495,7 +509,9 @@
 			files = (
 				CE5A7C9224F7F3F900E89273 /* AuthUserRequest.swift in Sources */,
 				CE5A7C9B24F7F3F900E89273 /* BaseResponseModel.swift in Sources */,
+				CE6F8EAD24F93AAF002D97F0 /* NotificationTokenRequest.swift in Sources */,
 				CE5A7C8324F7F3F900E89273 /* Storyboard+Extensions.swift in Sources */,
+				CE6F8EAC24F93AAF002D97F0 /* NotificationTokenRequestModel.swift in Sources */,
 				CE5A7C8524F7F3F900E89273 /* URL+Extensions.swift in Sources */,
 				CE5A7C9C24F7F3F900E89273 /* TableData.swift in Sources */,
 				CE5A7C8224F7F3F900E89273 /* UIViewController+Extension.swift in Sources */,

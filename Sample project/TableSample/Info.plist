@@ -20,6 +20,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>App required to use camera for video chat</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>App required to use microphone for video chat</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -60,9 +64,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>NSCameraUsageDescription</key>
-    <string>App required to use camera for video chat</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>App required to use microphone for video chat</string>
 </dict>
 </plist>

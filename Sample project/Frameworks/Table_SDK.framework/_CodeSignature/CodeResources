@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		2glaca1CNzzLBiR03XpayeUpkDo=
+		Ijx6h/v52PokaqKZsLWMnl5lQ0E=
 		</data>
 		<key>Headers/Table_SDK-Swift.h</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/Table_SDK.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		rRvJNi9FDOOl9feAd8LmlG5dLRw=
+		sJqQOBIYcJYgB6NqQxtXjOP70vE=
 		</data>
 		<key>Modules/Table_SDK.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		rRvJNi9FDOOl9feAd8LmlG5dLRw=
+		sJqQOBIYcJYgB6NqQxtXjOP70vE=
 		</data>
 		<key>Modules/Table_SDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/Table_SDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		o5mJvYop+PKVNflBhtWuWIqdc/s=
+		tdVtHBkAqanW6uRG0+r5mIXoX8E=
 		</data>
 		<key>Modules/Table_SDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Modules/Table_SDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		o5mJvYop+PKVNflBhtWuWIqdc/s=
+		tdVtHBkAqanW6uRG0+r5mIXoX8E=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -79,7 +79,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			knq7EOA+3wo35sA1SntpHyBDDQNiqoSfRsUzs4wdIBw=
+			iYMqCSCmWrWrRFQBV8xdfl0T13X50s0n2a6BRZ8Qjts=
 			</data>
 		</dict>
 		<key>Headers/Table_SDK-Swift.h</key>
@@ -100,14 +100,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0/TycaWP1WxpcUn8JrBsrmM+31ckhZoCnyaAZUtgqDI=
+			pF9zI4+a5qHbDEdmrogLmYOKbT3QeULXyr9bGggMgxo=
 			</data>
 		</dict>
 		<key>Modules/Table_SDK.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0/TycaWP1WxpcUn8JrBsrmM+31ckhZoCnyaAZUtgqDI=
+			pF9zI4+a5qHbDEdmrogLmYOKbT3QeULXyr9bGggMgxo=
 			</data>
 		</dict>
 		<key>Modules/Table_SDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -121,7 +121,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Xq6vfE29FZ0SagLlVkq1aQ7u//KiLsI1KYuV5YGo8yI=
+			WqBnNhL136srNz+mjOpkYS6fg0OOwMAYXhUOJo50pQo=
 			</data>
 		</dict>
 		<key>Modules/Table_SDK.swiftmodule/arm64.swiftdoc</key>
@@ -135,7 +135,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Xq6vfE29FZ0SagLlVkq1aQ7u//KiLsI1KYuV5YGo8yI=
+			WqBnNhL136srNz+mjOpkYS6fg0OOwMAYXhUOJo50pQo=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
