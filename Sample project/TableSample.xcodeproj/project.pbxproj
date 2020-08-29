@@ -33,6 +33,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4DE304DA24FA6B0B00EE43B6 /* TableSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TableSample.entitlements; sourceTree = "<group>"; };
 		CE5A7A8624EEB9A800E89273 /* TableSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5A7A8924EEB9A800E89273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE5A7A8B24EEB9A800E89273 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 		CE5A7A8824EEB9A800E89273 /* TableSample */ = {
 			isa = PBXGroup;
 			children = (
+				4DE304DA24FA6B0B00EE43B6 /* TableSample.entitlements */,
 				CE6F8EA524F91B30002D97F0 /* Extensions */,
 				CE5A7A8924EEB9A800E89273 /* AppDelegate.swift */,
 				CE5A7A8B24EEB9A800E89273 /* SceneDelegate.swift */,
@@ -324,8 +326,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TableSample/TableSample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HH67X89996;
+				DEVELOPMENT_TEAM = C8Y75DGU2X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework",
@@ -336,7 +339,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = table.co.tableSample;
+				PRODUCT_BUNDLE_IDENTIFIER = "co.table.ios-sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -347,8 +350,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TableSample/TableSample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HH67X89996;
+				DEVELOPMENT_TEAM = C8Y75DGU2X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework",
@@ -359,7 +363,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = table.co.tableSample;
+				PRODUCT_BUNDLE_IDENTIFIER = "co.table.ios-sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
