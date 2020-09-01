@@ -77,8 +77,8 @@ class TableNetworkModel {
             let tokenModel = NotificationTokenParamsModel()
             tokenModel.token = token
             let encodedData = try JSONEncoder().encode(tokenModel)
-            authRequestModel.parameters = encodedData
-            authRequest?.fetch()
+            tokenRequestModel.parameters = encodedData
+            tokenRequest?.fetch()
         } catch {
             onTokenFailed?(nil)
         }

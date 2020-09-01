@@ -32,13 +32,21 @@ public final class Table {
 //MARK: -Public interface
 extension Table {
     
-    public static func initialize(workspaceUrl: String, apiKey: String, experienceShortCode: String? = nil, fcmNotificationChannel: String? = nil, jpushNotificationChannel: String? = nil, onSuccessInitializeCompletion: (() -> Void)?, onFailureCompletion: ((_ errorCode: Int?, _ details: String?) -> Void)?) {
+    public static func initialize(workspaceUrl: String, apiKey: String, experienceShortCode: String? = nil, onSuccessInitializeCompletion: (() -> Void)?, onFailureCompletion: ((_ errorCode: Int?, _ details: String?) -> Void)?) {
         print("Workspace: \(workspaceUrl) Key: \(apiKey)")
         Table.instance.tableData.apiKey = apiKey
         Table.instance.tableData.workspaceUrl = workspaceUrl
         Table.instance.tableData.experienceShortCode = experienceShortCode
-        Table.instance.tableData.fcmNotificationChannel = fcmNotificationChannel
-        Table.instance.tableData.jpushNotificationChannel = jpushNotificationChannel
+        
+        Table.instance.tableData.updateNotificationTokenCompletion = {(token) in
+            guard let token = token else { return }
+            
+            Table.instance.sendNotificationToken(token: token, onSuccessTokenCompletion: {
+                print("Notifiction token sended")
+            }) { (code, errorMessage) in
+                print("Notification token error:\(String(describing: code)), ErrorMessage: \(String(describing: errorMessage))")
+            }
+        }
     }
     
     public static func registerUser(withUserId userID: String, userAttributes: UserAttributes, onSuccessLoginCompletion: (() -> Void)?, onFailureCompletion: ((_ errorCode: Int?, _ details: String?) -> Void)?) {
@@ -59,10 +67,6 @@ extension Table {
         }
     }
     
-    public static func updateUser(_ attributes: UserAttributes) {
-           
-    }
-    
     public static func logout() {
         Table.instance.tableData.userID = nil
         Table.instance.tableData.token = nil
@@ -81,21 +85,8 @@ extension Table {
         parentViewController.present(navVC, animated: true)
     }
     
-    public static func updateNotificationToken(token: String, onSuccessTokenCompletion: (() -> Void)?, onFailureCompletion: ((_ errorCode: Int?, _ details: String?) -> Void)?) {
-        
-        Table.instance.networkModel.tryToSendToken(token: token)
-        
-        Table.instance.networkModel.onTokenSuccess = {
-            onSuccessTokenCompletion?()
-        }
-        
-        Table.instance.networkModel.onTokenFailed = { (error) in
-            guard let error = error as NSError? else {
-                onFailureCompletion?(nil, nil)
-                return
-            }
-            onFailureCompletion?(error.code, error.description)
-        }
+    public static func updateNotificationToken(token: String) {
+        Table.instance.tableData.notificationToken = token
     }
 }
 
@@ -107,14 +98,32 @@ private extension Table {
         Table.instance.networkModel.tryToAuthUser(userParamsModel: paramsModel)
         
         Table.instance.networkModel.onAuthSuccess = { (user) in
-            
-            Table.instance.tableData.token = user?.token
-            Table.instance.tableData.userID = user?.id
             NetworkManager.instance.authToken = user?.token ?? ""
-            onSuccessLoginCompletion?()
+                       onSuccessLoginCompletion?()
+            
+            Table.instance.tableData.userID = user?.id
+            Table.instance.tableData.token = user?.token
+           
         }
         
         Table.instance.networkModel.onAuthFailed = { (error) in
+            guard let error = error as NSError? else {
+                onFailureCompletion?(nil, nil)
+                return
+            }
+            onFailureCompletion?(error.code, error.description)
+        }
+    }
+    
+    func sendNotificationToken(token: String, onSuccessTokenCompletion: (() -> Void)?, onFailureCompletion: ((_ errorCode: Int?, _ details: String?) -> Void)?) {
+        
+        Table.instance.networkModel.tryToSendToken(token: token)
+        
+        Table.instance.networkModel.onTokenSuccess = {
+            onSuccessTokenCompletion?()
+        }
+        
+        Table.instance.networkModel.onTokenFailed = { (error) in
             guard let error = error as NSError? else {
                 onFailureCompletion?(nil, nil)
                 return

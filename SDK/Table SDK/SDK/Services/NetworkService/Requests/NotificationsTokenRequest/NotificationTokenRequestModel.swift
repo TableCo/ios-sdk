@@ -20,7 +20,7 @@ class NotificationTokenParamsModel: Codable {
     var token: String?
     
     enum CodingKeys: String, CodingKey {
-        case token = "fcm_device_token"
+        case token = "contact_apns_device_token"
     }
     
     func encode(to encoder: Encoder) throws {

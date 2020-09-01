@@ -18,7 +18,6 @@ class NotificationTokenRequest: BaseRequest {
         self.method = .post
         self.headersType = .withJSON
         self.parametersType = .encodeParametersType
-        self.skipCheckResponse = true
         
         self.data = model.parameters
     }

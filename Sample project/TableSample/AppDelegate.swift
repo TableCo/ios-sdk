@@ -73,11 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Device Token: \(token)")
         if !token.isEmpty {
             
-            Table.updateNotificationToken(token: token, onSuccessTokenCompletion: {
-                print("Notification token sended")
-            }) { (code, message) in
-                print("Code: \(String(describing: code)) Message: \(String(describing: message))")
-            }
+            Table.updateNotificationToken(token: token)
         }
     }
 
@@ -92,11 +88,12 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        completionHandler()
+        
         let userInfo = response.notification.request.content.userInfo
         if let tableId = userInfo["table_id"] {
             //future handling of notification
         }
         print(userInfo)
+        completionHandler()
     }
 }
