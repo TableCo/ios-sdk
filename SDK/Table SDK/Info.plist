@@ -18,9 +18,9 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
-    <key>NSCameraUsageDescription</key>
-    <string>App required to use camera for video chat</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>App required to use microphone for video chat</string>
+	<key>NSCameraUsageDescription</key>
+	<string>App required to use camera for video chat</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>App required to use microphone for video chat</string>
 </dict>
 </plist>

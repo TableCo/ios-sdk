@@ -26,7 +26,7 @@ class VideoVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       // navigationController?.isNavigationBarHidden = true
+        overrideUserInterfaceStyle = .light
         isCallStarted = true
         setupUI()
     }
