@@ -13,21 +13,21 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Table.initialize(workspaceUrl: "https://develop4.dev.table.co", apiKey: "978fQmN5ReV3vPKclQgHEg", onSuccessInitializeCompletion: {
-            
-        }) { [weak self] (errorCode, errorMessage) in
-            self?.showError(errorCode: errorCode, errorMessage: errorMessage)
+      
+        Table.initialize(workspaceUrl: "https://develop4.dev.table.co", apiKey: "test_key", onSuccessInitializeCompletion: {
+            print("Table has been initialized")
+        }) { (errorCode, errorMessage) in
+            print("\(String(describing: errorCode)): \(String(describing: errorMessage))")
         }
         
     }
 
     @IBAction func registerUser(_ sender: Any) {
         var userAttrib = UserAttributes()
-        userAttrib.firstName = "Bruice"
+        userAttrib.firstName = "Test"
         userAttrib.lastName = "User"
-        userAttrib.email = "bruice@gmail.com"
-        Table.registerUser(withUserId: "1212313214Bruice", userAttributes: userAttrib, onSuccessLoginCompletion: { [userAttrib, weak self] in
+        userAttrib.email = "ttest@gmail.com"
+        Table.registerUser(withUserId: "1212313214Tttestqq", userAttributes: userAttrib, onSuccessLoginCompletion: { [userAttrib, weak self] in
             self?.showAlert(nil, message: "You are logined as \(userAttrib.firstName ?? "") \(userAttrib.lastName ?? "")")
         }) { [weak self](errorCode, errorMessage) in
             self?.showError(errorCode: errorCode, errorMessage: errorMessage)

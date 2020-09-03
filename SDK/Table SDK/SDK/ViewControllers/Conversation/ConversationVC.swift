@@ -33,6 +33,8 @@ class ConversationVC: UIViewController,UIGestureRecognizerDelegate {
             // Fallback on earlier versions
         }
         setupWebView()
+        setupNavigationBar()
+        self.modalPresentationStyle = .fullScreen
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +60,10 @@ class ConversationVC: UIViewController,UIGestureRecognizerDelegate {
     }
     
     // MARK: - Setup UI
+    
+    private func setupNavigationBar() {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
     
     func setupCreateButton() {
         btnCreate.layer.cornerRadius = btnCreate.layer.frame.height / 2

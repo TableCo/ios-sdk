@@ -33,10 +33,25 @@ public final class Table {
 extension Table {
     
     public static func initialize(workspaceUrl: String, apiKey: String, experienceShortCode: String? = nil, onSuccessInitializeCompletion: (() -> Void)?, onFailureCompletion: ((_ errorCode: Int?, _ details: String?) -> Void)?) {
-        print("Workspace: \(workspaceUrl) Key: \(apiKey)")
-        Table.instance.tableData.apiKey = apiKey
-        Table.instance.tableData.workspaceUrl = workspaceUrl
+       
         Table.instance.tableData.experienceShortCode = experienceShortCode
+        
+        if let validWorkspace = Table.instance.validWorkspaceURL(workspaceUrl) {
+            Table.instance.tableData.workspaceUrl = validWorkspace
+      
+        } else {
+            onFailureCompletion?(Message.ErrorMessages.noWorkspaceAdded.code, Message.ErrorMessages.noWorkspaceAdded.message)
+            return
+        }
+        
+        if !apiKey.isEmpty {
+            Table.instance.tableData.apiKey = apiKey
+        } else {
+            onFailureCompletion?(Message.ErrorMessages.apiKeyEmpty.code, Message.ErrorMessages.apiKeyEmpty.message)
+            return
+        }
+        
+        print("Workspace: \(workspaceUrl) Key: \(apiKey)")
         
         Table.instance.tableData.updateNotificationTokenCompletion = {(token) in
             guard let token = token else { return }
@@ -47,11 +62,22 @@ extension Table {
                 print("Notification token error:\(String(describing: code)), ErrorMessage: \(String(describing: errorMessage))")
             }
         }
+        
+        onSuccessInitializeCompletion?()
     }
     
     public static func registerUser(withUserId userID: String, userAttributes: UserAttributes, onSuccessLoginCompletion: (() -> Void)?, onFailureCompletion: ((_ errorCode: Int?, _ details: String?) -> Void)?) {
         Table.instance.tableData.userAttributes = userAttributes
-        Table.instance.tableData.userID = userID
+        
+      
+        
+        if !userID.isEmpty {
+           Table.instance.tableData.userID = userID
+        } else {
+            onFailureCompletion?(Message.ErrorMessages.userIdEmpty.code, Message.ErrorMessages.userIdEmpty.message)
+            return
+        }
+        
         Table.instance.registerUser(onSuccessLoginCompletion: {
             onSuccessLoginCompletion?()
         }) { (code, message) in
@@ -75,11 +101,12 @@ extension Table {
     
     public static func showConversationList(parentViewController: UIViewController, onFailureCompletion: ((_ errorCode: Int?, _ details: String?) -> Void)?) {
         guard Table.instance.isAuthentificated else {
-            onFailureCompletion?(104, "User ID is Empty")
+            onFailureCompletion?(Message.ErrorMessages.userIdEmpty.code, Message.ErrorMessages.userIdEmpty.message)
             return
         }
         
         let navVC = UINavigationController()
+        navVC.modalPresentationStyle = .fullScreen
         let vc = ConversationVC.instantiateFromAppStoryBoard(appStoryBorad: .TableMainBoard)
         navVC.viewControllers = [vc]
         parentViewController.present(navVC, animated: true)
@@ -95,6 +122,18 @@ private extension Table {
     func registerUser(onSuccessLoginCompletion: (() -> Void)?, onFailureCompletion: ((_ errorCode: Int?, _ details: String?) -> Void)?) {
         let paramsModel = UserParamsModel()
         paramsModel.updateFromTableData(Table.instance.tableData)
+        
+        guard Table.instance.validWorkspaceURL(Table.instance.getWorkspaceUrl()) != nil else {
+            onFailureCompletion?(Message.ErrorMessages.noWorkspaceAdded.code, Message.ErrorMessages.noWorkspaceAdded.message)
+            return
+        }
+        
+        guard !Table.instance.tableData.apiKey.isEmpty else {
+            onFailureCompletion?(Message.ErrorMessages.apiKeyEmpty.code, Message.ErrorMessages.apiKeyEmpty.message)
+            return
+        }
+        
+        
         Table.instance.networkModel.tryToAuthUser(userParamsModel: paramsModel)
         
         Table.instance.networkModel.onAuthSuccess = { (user) in
@@ -111,7 +150,16 @@ private extension Table {
                 onFailureCompletion?(nil, nil)
                 return
             }
-            onFailureCompletion?(error.code, error.description)
+            
+            print(error.localizedDescription)
+            
+            let code = error.code
+            
+            if code >= 400, code < 500 {
+                onFailureCompletion?(Message.ErrorMessages.networkFailure.code, Message.ErrorMessages.networkFailure.message)
+            } else if code >= 500 {
+                onFailureCompletion?(Message.ErrorMessages.general.code, "Inconsistent data during registration")
+            }
         }
     }
     
@@ -131,6 +179,38 @@ private extension Table {
             onFailureCompletion?(error.code, error.description)
         }
     }
+    
+    func validWorkspaceURL(_ workspaceUrl: String)-> String? {
+           var validWorkspaceUrl = workspaceUrl
+        
+           guard !validWorkspaceUrl.isEmpty else { return nil }
+           
+           // Make sure we're on https protocol identifier
+           if !validWorkspaceUrl.contains("http") {
+               validWorkspaceUrl = "https://" + validWorkspaceUrl
+           }
+            
+           // If the developer used just their table ID then add the standard table domain
+           if (!validWorkspaceUrl.contains(".")) {
+               validWorkspaceUrl = validWorkspaceUrl + ".table.co"
+           }
+           
+           // Don't want double trailing slashes
+           if (validWorkspaceUrl.hasSuffix("//")) {
+               validWorkspaceUrl = String(validWorkspaceUrl.dropLast())
+           }
+           
+           // Make sure we never end with the trailing slash
+           if (validWorkspaceUrl.hasSuffix("/")) {
+               validWorkspaceUrl = String(validWorkspaceUrl.dropLast())
+           }
+           
+           guard let _ = URL(string: workspaceUrl) else {
+               return nil
+           }
+           
+           return validWorkspaceUrl
+       }
 }
 
 //MARK: -Internal methods
