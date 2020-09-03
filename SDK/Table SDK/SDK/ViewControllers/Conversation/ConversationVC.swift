@@ -19,13 +19,14 @@ class ConversationVC: UIViewController,UIGestureRecognizerDelegate {
     private var viewModel = ConversationViewModel()
     var tableId = ""
     var isFromNotification = false
+    private var canDissmissVC = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
         navigationItem.setHidesBackButton(true, animated: false)
         self.title = "All Conversations"
-        btnBack.isHidden = true
+     //   btnBack.isHidden = true
         
         if #available(iOS 12.0, *) {
             self.view.backgroundColor = traitCollection.userInterfaceStyle == .light ? UIColor.white : UIColor.white
@@ -33,14 +34,13 @@ class ConversationVC: UIViewController,UIGestureRecognizerDelegate {
             // Fallback on earlier versions
         }
         setupWebView()
-        setupNavigationBar()
-        self.modalPresentationStyle = .fullScreen
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkBackItems()
         setupCreateButton()
+        setupNavigationBar()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -137,6 +137,8 @@ class ConversationVC: UIViewController,UIGestureRecognizerDelegate {
     @IBAction func btnBackClick(_ sender: Any) {
         if webView.canGoBack {
             webView.goBack()
+        } else if canDissmissVC {
+            dismiss(animated: false, completion: nil)
         }
         checkBackItems()
     }
@@ -172,12 +174,14 @@ class ConversationVC: UIViewController,UIGestureRecognizerDelegate {
                     
                 }
             }
-            btnBack.isHidden = false
+         //   btnBack.isHidden = false
+            canDissmissVC = false
             btnCreate.isHidden = true
             tapTimer?.invalidate()
         }else{
             self.title = "All Conversations"
-            btnBack.isHidden = true
+         //   btnBack.isHidden = true
+            canDissmissVC = true
             btnCreate.isHidden = false
             checkBackItems()
         }
