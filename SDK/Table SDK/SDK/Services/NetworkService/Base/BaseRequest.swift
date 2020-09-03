@@ -31,7 +31,7 @@ enum ParametersType {
 }
 
 class BaseRequest {
-    static let baseURL = URL(string: Table.instance.getWorkspaceUrl())!
+    static let baseURL = URL(string: Table.instance.getWorkspaceUrl()) ?? URL(string: "https://table.co")!
     
     var path: String = ""
     var method: MyHTTPMethod = .get

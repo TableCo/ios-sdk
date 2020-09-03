@@ -26,7 +26,7 @@ class VideoVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
+       // navigationController?.isNavigationBarHidden = true
         isCallStarted = true
         setupUI()
     }
@@ -37,15 +37,18 @@ class VideoVC: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         isCallStarted = false
-        navigationController?.isNavigationBarHidden = false
     }
 
     // MARK: - setup UI
+    
+    private func setupNavigationBar() {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     func setupUI() {
         lblFlipCamera.font = UIFont.systemFont(ofSize: _lblFontSize)
         lblEndCall.font = UIFont.systemFont(ofSize: _lblFontSize)
-        // btnChangeCamera.layer.cornerRadius = btnChangeCamera.frame.size.height / 2
-        //btnEndCall.layer.cornerRadius = btnChangeCamera.frame.size.height / 2
+        setupNavigationBar()
     }
     
     func getOpenTokAPI(){
