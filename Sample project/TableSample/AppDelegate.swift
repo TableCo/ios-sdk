@@ -11,9 +11,6 @@ import Table_SDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         registerForRemoteNotification(application)
@@ -76,8 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Table.updateNotificationToken(token: token)
         }
     }
-
-
 }
 
 

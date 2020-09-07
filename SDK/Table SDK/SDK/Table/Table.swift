@@ -33,12 +33,12 @@ public final class Table {
 extension Table {
     
     public static func initialize(workspaceUrl: String, apiKey: String, experienceShortCode: String? = nil, onSuccessInitializeCompletion: (() -> Void)?, onFailureCompletion: ((_ errorCode: Int?, _ details: String?) -> Void)?) {
-       
+        
         Table.instance.tableData.experienceShortCode = experienceShortCode
         
         if let validWorkspace = Table.instance.validWorkspaceURL(workspaceUrl) {
             Table.instance.tableData.workspaceUrl = validWorkspace
-      
+            
         } else {
             onFailureCompletion?(Message.ErrorMessages.noWorkspaceAdded.code, Message.ErrorMessages.noWorkspaceAdded.message)
             return
@@ -69,10 +69,8 @@ extension Table {
     public static func registerUser(withUserId userID: String, userAttributes: UserAttributes, onSuccessLoginCompletion: (() -> Void)?, onFailureCompletion: ((_ errorCode: Int?, _ details: String?) -> Void)?) {
         Table.instance.tableData.userAttributes = userAttributes
         
-      
-        
         if !userID.isEmpty {
-           Table.instance.tableData.userID = userID
+            Table.instance.tableData.userID = userID
         } else {
             onFailureCompletion?(Message.ErrorMessages.userIdEmpty.code, Message.ErrorMessages.userIdEmpty.message)
             return
@@ -133,16 +131,15 @@ private extension Table {
             return
         }
         
-        
         Table.instance.networkModel.tryToAuthUser(userParamsModel: paramsModel)
         
         Table.instance.networkModel.onAuthSuccess = { (user) in
             NetworkManager.instance.authToken = user?.token ?? ""
-                       onSuccessLoginCompletion?()
+            onSuccessLoginCompletion?()
             
             Table.instance.tableData.userID = user?.id
             Table.instance.tableData.token = user?.token
-           
+            
         }
         
         Table.instance.networkModel.onAuthFailed = { (error) in
@@ -181,50 +178,50 @@ private extension Table {
     }
     
     func validWorkspaceURL(_ workspaceUrl: String)-> String? {
-           var validWorkspaceUrl = workspaceUrl
+        var validWorkspaceUrl = workspaceUrl
         
-           guard !validWorkspaceUrl.isEmpty else { return nil }
-           
-           // Make sure we're on https protocol identifier
-           if !validWorkspaceUrl.contains("http") {
-               validWorkspaceUrl = "https://" + validWorkspaceUrl
-           }
-            
-           // If the developer used just their table ID then add the standard table domain
-           if (!validWorkspaceUrl.contains(".")) {
-               validWorkspaceUrl = validWorkspaceUrl + ".table.co"
-           }
-           
-           // Don't want double trailing slashes
-           if (validWorkspaceUrl.hasSuffix("//")) {
-               validWorkspaceUrl = String(validWorkspaceUrl.dropLast())
-           }
-           
-           // Make sure we never end with the trailing slash
-           if (validWorkspaceUrl.hasSuffix("/")) {
-               validWorkspaceUrl = String(validWorkspaceUrl.dropLast())
-           }
-           
-           guard let _ = URL(string: workspaceUrl) else {
-               return nil
-           }
-           
-           return validWorkspaceUrl
-       }
+        guard !validWorkspaceUrl.isEmpty else { return nil }
+        
+        // Make sure we're on https protocol identifier
+        if !validWorkspaceUrl.contains("http") {
+            validWorkspaceUrl = "https://" + validWorkspaceUrl
+        }
+        
+        // If the developer used just their table ID then add the standard table domain
+        if (!validWorkspaceUrl.contains(".")) {
+            validWorkspaceUrl = validWorkspaceUrl + ".table.co"
+        }
+        
+        // Don't want double trailing slashes
+        if (validWorkspaceUrl.hasSuffix("//")) {
+            validWorkspaceUrl = String(validWorkspaceUrl.dropLast())
+        }
+        
+        // Make sure we never end with the trailing slash
+        if (validWorkspaceUrl.hasSuffix("/")) {
+            validWorkspaceUrl = String(validWorkspaceUrl.dropLast())
+        }
+        
+        guard let _ = URL(string: workspaceUrl) else {
+            return nil
+        }
+        
+        return validWorkspaceUrl
+    }
 }
 
 //MARK: -Internal methods
 extension Table {
     func getWorkspaceUrl() -> String {
-           return Table.instance.tableData.workspaceUrl
-       }
+        return Table.instance.tableData.workspaceUrl
+    }
     
-       func getToken() -> String? {
-           return Table.instance.tableData.token
-       }
-       
-       func getUserExperienceShortCode()->String? {
-           return Table.instance.tableData.experienceShortCode
-       }
+    func getToken() -> String? {
+        return Table.instance.tableData.token
+    }
+    
+    func getUserExperienceShortCode()->String? {
+        return Table.instance.tableData.experienceShortCode
+    }
 }
-    
+
