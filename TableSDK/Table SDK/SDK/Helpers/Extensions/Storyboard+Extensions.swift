@@ -11,7 +11,7 @@ enum AppStoryboard : String {
     case TableMainBoard
     
     var instance : UIStoryboard {
-      return UIStoryboard(name: self.rawValue, bundle: Bundle(identifier: "Table.co.Table-SDK"))
+      return UIStoryboard(name: self.rawValue, bundle: BundleUtils.sdkBundle())
     }
     
     func viewController<T: UIViewController>(viewControllerClass: T.Type) -> T {
