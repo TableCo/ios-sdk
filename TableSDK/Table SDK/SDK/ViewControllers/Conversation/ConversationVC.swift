@@ -75,7 +75,7 @@ class ConversationVC: UIViewController,UIGestureRecognizerDelegate {
         let webConfiguration = WKWebViewConfiguration()
         let contentController = WKUserContentController()
         
-        guard let urlStr = Bundle(identifier: "Table.co.Table-SDK")?.url(forResource: "ajax", withExtension: "js") else {
+        guard let urlStr = BundleUtils.sdkBundle().url(forResource: "ajax", withExtension: "js") else {
             assert(false, "Should always get the ajax bundle")
             return
         }
