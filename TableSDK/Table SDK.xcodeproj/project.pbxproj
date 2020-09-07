@@ -57,7 +57,7 @@
 		0CEE8B4B9D8B43952FB4537B /* Pods-Table SDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Table SDK.release.xcconfig"; path = "Target Support Files/Pods-Table SDK/Pods-Table SDK.release.xcconfig"; sourceTree = "<group>"; };
 		6A754D98621CEBF573122C53 /* Pods-Table SDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Table SDK.debug.xcconfig"; path = "Target Support Files/Pods-Table SDK/Pods-Table SDK.debug.xcconfig"; sourceTree = "<group>"; };
 		8B7DB4D10A8A7E0D6388A54F /* Pods_Table_SDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Table_SDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE5A7C3424F7F06900E89273 /* Table_SDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Table_SDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE5A7C3424F7F06900E89273 /* TableSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TableSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5A7C3724F7F06900E89273 /* Table_SDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Table_SDK.h; sourceTree = "<group>"; };
 		CE5A7C3824F7F06900E89273 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE5A7C4224F7F3F900E89273 /* VideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoVC.swift; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 		CE5A7C3524F7F06900E89273 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE5A7C3424F7F06900E89273 /* Table_SDK.framework */,
+				CE5A7C3424F7F06900E89273 /* TableSDK.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -395,8 +395,8 @@
 		CEB3880D250650FB00237FB9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CE5A7CA324F7F5C600E89273 /* ajax.js */,
 				CE5A7C9F24F7F47800E89273 /* TableMainBoard.storyboard */,
+				CE5A7CA324F7F5C600E89273 /* ajax.js */,
 				CEB3880F250651A200237FB9 /* Images.bundle */,
 			);
 			path = Resources;
@@ -432,7 +432,7 @@
 			);
 			name = "Table SDK";
 			productName = "Table SDK";
-			productReference = CE5A7C3424F7F06900E89273 /* Table_SDK.framework */;
+			productReference = CE5A7C3424F7F06900E89273 /* TableSDK.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -693,7 +693,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Table.co.Table-SDK";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = TableSDK;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
@@ -720,7 +720,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Table.co.Table-SDK";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = TableSDK;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;

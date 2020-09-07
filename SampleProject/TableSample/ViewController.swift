@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Table_SDK
+import TableSDK
 
 class ViewController: UIViewController {
 
