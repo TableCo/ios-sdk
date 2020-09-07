@@ -10,7 +10,7 @@
         <!--ConversationVC-->
         <scene sceneID="ORl-x7-br6">
             <objects>
-                <viewController storyboardIdentifier="ConversationVC" id="Knz-VC-2x1" customClass="ConversationVC" customModule="Table_SDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConversationVC" id="Knz-VC-2x1" customClass="ConversationVC" customModule="TableSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qqq-Uo-vkT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                                     <constraint firstAttribute="height" constant="60" id="ksD-Oy-SxJ"/>
                                     <constraint firstAttribute="width" constant="60" id="x2h-7a-rQs"/>
                                 </constraints>
-                                <state key="normal" title="New" image="Create.png">
+                                <state key="normal" title="New" image="Create">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -47,8 +47,8 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="IWI-uk-xng">
-                        <barButtonItem key="leftBarButtonItem" image="Back.png" id="jyQ-RA-Kad">
-                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="Back.png" id="jyQ-RA-Kad">
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="btnBackClick:" destination="Knz-VC-2x1" id="kr8-VF-EmK"/>
                             </connections>
@@ -68,7 +68,7 @@
         <!--VideoVC-->
         <scene sceneID="fY5-P0-hdA">
             <objects>
-                <viewController storyboardIdentifier="VideoVC" id="obJ-cd-Dru" customClass="VideoVC" customModule="Table_SDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VideoVC" id="obJ-cd-Dru" customClass="VideoVC" customModule="TableSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ess-HU-RGZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,7 +82,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKF-vn-u3c">
                                                 <rect key="frame" x="0.0" y="0.0" width="81.5" height="72"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="ic_cam_change.png"/>
+                                                <state key="normal" image="ic_cam_change"/>
                                                 <connections>
                                                     <action selector="btnChangeCameraClick:" destination="obJ-cd-Dru" eventType="touchUpInside" id="4N8-wp-aJC"/>
                                                 </connections>
@@ -101,7 +101,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgV-sD-yDE">
                                                 <rect key="frame" x="0.0" y="0.0" width="81.5" height="72"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="ic_call.png"/>
+                                                <state key="normal" image="ic_call"/>
                                                 <connections>
                                                     <action selector="btnEndCallClick:" destination="obJ-cd-Dru" eventType="touchUpInside" id="6wW-s9-PYk"/>
                                                 </connections>
@@ -157,9 +157,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Back.png" width="33.5" height="33.5"/>
-        <image name="Create.png" width="42" height="42"/>
-        <image name="ic_call.png" width="72" height="72"/>
-        <image name="ic_cam_change.png" width="72" height="72"/>
+        <image name="Back.png" width="9" height="15"/>
+        <image name="Create" width="84" height="84"/>
+        <image name="ic_call" width="72" height="72"/>
+        <image name="ic_cam_change" width="72" height="72"/>
     </resources>
 </document>
