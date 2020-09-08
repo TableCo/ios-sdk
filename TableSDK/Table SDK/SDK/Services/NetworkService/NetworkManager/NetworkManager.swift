@@ -31,10 +31,7 @@ class NetworkManager {
         let urlRequest = request.createRequest()
         
         session.dataTask(with: urlRequest) { [weak self] (data, response, error) in
-//            if let url = response?.url {
-//                print(url)
-//            }
-            let req = urlRequest
+
             guard let responseError = self?.verifyResponse(response: response, data: data, defaultText: "Unknown error") else {
                 if let resp = response {
                     self?.setCookies(response: resp)
