@@ -97,7 +97,7 @@ extension Table {
         NetworkManager.instance.authToken = ""
     }
     
-    public static func showConversationList(parentViewController: UIViewController, onFailureCompletion: ((_ errorCode: Int?, _ details: String?) -> Void)?) {
+    public static func showConversationList(parentViewController: UIViewController, tableId: String? = nil, onFailureCompletion: ((_ errorCode: Int?, _ details: String?) -> Void)?) {
         guard Table.instance.isAuthentificated else {
             onFailureCompletion?(Message.ErrorMessages.userIdEmpty.code, Message.ErrorMessages.userIdEmpty.message)
             return
@@ -106,6 +106,10 @@ extension Table {
         let navVC = UINavigationController()
         navVC.modalPresentationStyle = .fullScreen
         let vc = ConversationVC.instantiateFromAppStoryBoard(appStoryBorad: .TableMainBoard)
+        if let tableId = tableId {
+            vc.isFromNotification = true
+            vc.tableId = tableId
+        }
         navVC.viewControllers = [vc]
         parentViewController.present(navVC, animated: true)
     }
