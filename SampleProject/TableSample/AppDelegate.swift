@@ -11,6 +11,9 @@ import TableSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         registerForRemoteNotification(application)
@@ -85,8 +88,12 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
         let userInfo = response.notification.request.content.userInfo
-        if let tableId = userInfo["table_id"] {
-            //future handling of notification
+        if let tableId = userInfo["table_id"] as? String {
+            if let rootViewController = self.window?.rootViewController as? UINavigationController {
+                Table.showConversationList(parentViewController: rootViewController, tableId: tableId) { (errorCode, errorMessage) in
+                    print("\(String(describing: errorCode)): \(String(describing: errorMessage))")
+                }
+            }
         }
         print(userInfo)
         completionHandler()

@@ -43,7 +43,7 @@
 		CE5A7C9A24F7F3F900E89273 /* BaseRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C7324F7F3F900E89273 /* BaseRequestModel.swift */; };
 		CE5A7C9B24F7F3F900E89273 /* BaseResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C7424F7F3F900E89273 /* BaseResponseModel.swift */; };
 		CE5A7C9C24F7F3F900E89273 /* TableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C7724F7F3F900E89273 /* TableData.swift */; };
-		CE5A7C9D24F7F3F900E89273 /* TBLUserAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C7924F7F3F900E89273 /* TBLUserAttributes.swift */; };
+		CE5A7C9D24F7F3F900E89273 /* UserAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C7924F7F3F900E89273 /* UserAttributes.swift */; };
 		CE5A7CA024F7F47800E89273 /* TableMainBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5A7C9F24F7F47800E89273 /* TableMainBoard.storyboard */; };
 		CE5A7CA424F7F5C600E89273 /* ajax.js in Resources */ = {isa = PBXBuildFile; fileRef = CE5A7CA324F7F5C600E89273 /* ajax.js */; };
 		CE6F8EAC24F93AAF002D97F0 /* NotificationTokenRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F8EA924F93AAF002D97F0 /* NotificationTokenRequestModel.swift */; };
@@ -95,7 +95,7 @@
 		CE5A7C7324F7F3F900E89273 /* BaseRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRequestModel.swift; sourceTree = "<group>"; };
 		CE5A7C7424F7F3F900E89273 /* BaseResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponseModel.swift; sourceTree = "<group>"; };
 		CE5A7C7724F7F3F900E89273 /* TableData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableData.swift; sourceTree = "<group>"; };
-		CE5A7C7924F7F3F900E89273 /* TBLUserAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TBLUserAttributes.swift; sourceTree = "<group>"; };
+		CE5A7C7924F7F3F900E89273 /* UserAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAttributes.swift; sourceTree = "<group>"; };
 		CE5A7C9F24F7F47800E89273 /* TableMainBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableMainBoard.storyboard; sourceTree = "<group>"; };
 		CE5A7CA324F7F5C600E89273 /* ajax.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ajax.js; sourceTree = "<group>"; };
 		CE6F8EA924F93AAF002D97F0 /* NotificationTokenRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTokenRequestModel.swift; sourceTree = "<group>"; };
@@ -362,7 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				CE5A7C7624F7F3F900E89273 /* TableData */,
-				CE5A7C7824F7F3F900E89273 /* TBLUserAttributes */,
+				CE5A7C7824F7F3F900E89273 /* UserAttributes */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -375,12 +375,12 @@
 			path = TableData;
 			sourceTree = "<group>";
 		};
-		CE5A7C7824F7F3F900E89273 /* TBLUserAttributes */ = {
+		CE5A7C7824F7F3F900E89273 /* UserAttributes */ = {
 			isa = PBXGroup;
 			children = (
-				CE5A7C7924F7F3F900E89273 /* TBLUserAttributes.swift */,
+				CE5A7C7924F7F3F900E89273 /* UserAttributes.swift */,
 			);
-			path = TBLUserAttributes;
+			path = UserAttributes;
 			sourceTree = "<group>";
 		};
 		CE6F8EA824F93A66002D97F0 /* NotificationsTokenRequest */ = {
@@ -547,7 +547,7 @@
 				CE5A7C8B24F7F3F900E89273 /* Endpoints.swift in Sources */,
 				CE5A7C7D24F7F3F900E89273 /* ConversationVC.swift in Sources */,
 				CE5A7C8D24F7F3F900E89273 /* GetHeaderRequest.swift in Sources */,
-				CE5A7C9D24F7F3F900E89273 /* TBLUserAttributes.swift in Sources */,
+				CE5A7C9D24F7F3F900E89273 /* UserAttributes.swift in Sources */,
 				CE5A7C9824F7F3F900E89273 /* PagingHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
