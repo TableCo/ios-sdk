@@ -26,8 +26,8 @@ class ViewController: UIViewController {
         var userAttrib = UserAttributes()
         userAttrib.firstName = "Test"
         userAttrib.lastName = "User"
-        userAttrib.email = "ttest@gmail.com"
-        Table.registerUser(withUserId: "1212313214Tttestqq", userAttributes: userAttrib, onSuccessLoginCompletion: { [userAttrib, weak self] in
+        userAttrib.email = "test@testmail.com"
+        Table.registerUser(withUserId: "test_user_id_1", userAttributes: userAttrib, onSuccessLoginCompletion: { [userAttrib, weak self] in
             self?.showAlert(nil, message: "You are logged in as \(userAttrib.firstName ?? "") \(userAttrib.lastName ?? "")")
         }) { [weak self](errorCode, errorMessage) in
             self?.showError(errorCode: errorCode, errorMessage: errorMessage)
