@@ -23,10 +23,11 @@ class ViewController: UIViewController {
 
     @IBAction func registerUser(_ sender: Any) {
         var userAttrib = UserAttributes()
-        userAttrib.firstName = "Test"
-        userAttrib.lastName = "User"
-        userAttrib.email = "test@testmail.com"
-        Table.registerUser(withUserId: "test_user_id_1", userAttributes: userAttrib, onSuccessLoginCompletion: { [userAttrib, weak self] in
+        userAttrib.firstName = "User"
+        userAttrib.lastName = "Name"
+        userAttrib.userHash = "USER_HASH"
+        userAttrib.email = "app-user@gmail.com"
+        Table.registerUser(withUserId: "USER_ID", userAttributes: userAttrib, onSuccessLoginCompletion: { [userAttrib, weak self] in
             self?.showAlert(nil, message: "You are logged in as \(userAttrib.firstName ?? "") \(userAttrib.lastName ?? "")")
         }) { [weak self](errorCode, errorMessage) in
             self?.showError(errorCode: errorCode, errorMessage: errorMessage)
