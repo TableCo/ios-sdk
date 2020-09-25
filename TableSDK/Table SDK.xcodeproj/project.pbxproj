@@ -680,6 +680,7 @@
 			baseConfigurationReference = 6A754D98621CEBF573122C53 /* Pods-Table SDK.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -692,6 +693,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Table.co.Table-SDK";
 				PRODUCT_NAME = TableSDK;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -707,6 +709,7 @@
 			baseConfigurationReference = 0CEE8B4B9D8B43952FB4537B /* Pods-Table SDK.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -719,6 +722,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Table.co.Table-SDK";
 				PRODUCT_NAME = TableSDK;
 				PROVISIONING_PROFILE_SPECIFIER = "";
