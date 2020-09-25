@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = 'TableSDK'
-  spec.version      = '0.1.3'
+  spec.version      = '0.1.4'
   spec.summary      = 'TableSDK framework'
   spec.description  = 'An iOS Swift SDK for TABLE.co.'
 
@@ -17,5 +17,11 @@ Pod::Spec.new do |spec|
   spec.swift_version = ['5.0', '5.1', '5.2', '5.3']
   spec.dependency 'OpenTok'
   spec.static_framework = true
+
+ # https://github.com/CocoaPods/CocoaPods/issues/10065
+  s.pod_target_xcconfig = {
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+  }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
 end
