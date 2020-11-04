@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		833F9B672552E2210009CA61 /* JitsiVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833F9B662552E2210009CA61 /* JitsiVideoVC.swift */; };
+		833F9B6B2552E22E0009CA61 /* JitsiVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833F9B6A2552E22E0009CA61 /* JitsiVideoModel.swift */; };
 		CE5A7C3924F7F06900E89273 /* Table_SDK.h in Headers */ = {isa = PBXBuildFile; fileRef = CE5A7C3724F7F06900E89273 /* Table_SDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE5A7C7A24F7F3F900E89273 /* VideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C4224F7F3F900E89273 /* VideoVC.swift */; };
 		CE5A7C7B24F7F3F900E89273 /* VideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C4324F7F3F900E89273 /* VideoViewModel.swift */; };
@@ -56,6 +58,8 @@
 /* Begin PBXFileReference section */
 		0CEE8B4B9D8B43952FB4537B /* Pods-Table SDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Table SDK.release.xcconfig"; path = "Target Support Files/Pods-Table SDK/Pods-Table SDK.release.xcconfig"; sourceTree = "<group>"; };
 		6A754D98621CEBF573122C53 /* Pods-Table SDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Table SDK.debug.xcconfig"; path = "Target Support Files/Pods-Table SDK/Pods-Table SDK.debug.xcconfig"; sourceTree = "<group>"; };
+		833F9B662552E2210009CA61 /* JitsiVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitsiVideoVC.swift; sourceTree = "<group>"; };
+		833F9B6A2552E22E0009CA61 /* JitsiVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitsiVideoModel.swift; sourceTree = "<group>"; };
 		8B7DB4D10A8A7E0D6388A54F /* Pods_Table_SDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Table_SDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5A7C3424F7F06900E89273 /* TableSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TableSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5A7C3724F7F06900E89273 /* Table_SDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Table_SDK.h; sourceTree = "<group>"; };
@@ -125,6 +129,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		833F9B652552E20E0009CA61 /* JitsiVideo */ = {
+			isa = PBXGroup;
+			children = (
+				833F9B662552E2210009CA61 /* JitsiVideoVC.swift */,
+				833F9B6A2552E22E0009CA61 /* JitsiVideoModel.swift */,
+			);
+			path = JitsiVideo;
+			sourceTree = "<group>";
+		};
 		B9AB41FA74470E39BFE8EAB0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +191,7 @@
 		CE5A7C4024F7F3F900E89273 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				833F9B652552E20E0009CA61 /* JitsiVideo */,
 				CE5A7C4124F7F3F900E89273 /* Video */,
 				CE5A7C4424F7F3F900E89273 /* Conversation */,
 			);
@@ -524,6 +538,7 @@
 				CE5A7C8024F7F3F900E89273 /* Table.swift in Sources */,
 				CE5A7C9024F7F3F900E89273 /* CreateConversationRequest.swift in Sources */,
 				CE5A7C8C24F7F3F900E89273 /* GetHeaderResponseModel.swift in Sources */,
+				833F9B6B2552E22E0009CA61 /* JitsiVideoModel.swift in Sources */,
 				CE5A7C9124F7F3F900E89273 /* CreateConversationRequestModel.swift in Sources */,
 				CE5A7C9A24F7F3F900E89273 /* BaseRequestModel.swift in Sources */,
 				CE5A7C9424F7F3F900E89273 /* AuthUserResponseModel.swift in Sources */,
@@ -534,6 +549,7 @@
 				CE5A7C9924F7F3F900E89273 /* BaseRequest.swift in Sources */,
 				CE5A7C9524F7F3F900E89273 /* Reachability.swift in Sources */,
 				CE5A7C8124F7F3F900E89273 /* UIColor+Extensions.swift in Sources */,
+				833F9B672552E2210009CA61 /* JitsiVideoVC.swift in Sources */,
 				CE5A7C8E24F7F3F900E89273 /* GetHeaderRequestModel.swift in Sources */,
 				CE5A7C8A24F7F3F900E89273 /* GetApiKeyRequestModel.swift in Sources */,
 				CE5A7C7C24F7F3F900E89273 /* ConversationViewModel.swift in Sources */,

@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        Table.initialize(workspaceUrl: "https://YOUR_WORKSPACE.table.co", apiKey: "YOUR_SDK_API_KEY", onSuccessInitializeCompletion: {
+        Table.initialize(workspaceUrl: "https://develop3.dev.table.co", apiKey: "test_key", onSuccessInitializeCompletion: {
             print("Table has been initialized")
         }) { (errorCode, errorMessage) in
             print("\(String(describing: errorCode)): \(String(describing: errorMessage))")

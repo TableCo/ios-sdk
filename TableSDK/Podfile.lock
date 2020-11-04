@@ -1,16 +1,20 @@
 PODS:
+  - JitsiMeetSDK (2.10.2)
   - OpenTok (2.18.0)
 
 DEPENDENCIES:
+  - JitsiMeetSDK
   - OpenTok
 
 SPEC REPOS:
   trunk:
+    - JitsiMeetSDK
     - OpenTok
 
 SPEC CHECKSUMS:
+  JitsiMeetSDK: d7612d73befd3f7f51f989458a816bbd05d0bc8e
   OpenTok: bf4c81ff741e7976542c61b8f317882f8076eede
 
-PODFILE CHECKSUM: dd94bf204014318f99535af842c9e22da29b3311
+PODFILE CHECKSUM: 4f96adbf4602eb48bef7884797638434bcbe5058
 
 COCOAPODS: 1.9.3
