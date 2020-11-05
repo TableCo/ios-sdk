@@ -52,15 +52,15 @@
 		CE6F8EAD24F93AAF002D97F0 /* NotificationTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F8EAA24F93AAF002D97F0 /* NotificationTokenRequest.swift */; };
 		CEB38810250651A200237FB9 /* Images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEB3880F250651A200237FB9 /* Images.bundle */; };
 		CEB388122506533500237FB9 /* BundleUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB388112506533500237FB9 /* BundleUtils.swift */; };
-		F39A55B0FDA01191F8A411E6 /* Pods_Table_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7DB4D10A8A7E0D6388A54F /* Pods_Table_SDK.framework */; };
+		DFACF4327B435B1A35303C7D /* Pods_Table_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0702A85E1576E3923519EA41 /* Pods_Table_SDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0CEE8B4B9D8B43952FB4537B /* Pods-Table SDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Table SDK.release.xcconfig"; path = "Target Support Files/Pods-Table SDK/Pods-Table SDK.release.xcconfig"; sourceTree = "<group>"; };
-		6A754D98621CEBF573122C53 /* Pods-Table SDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Table SDK.debug.xcconfig"; path = "Target Support Files/Pods-Table SDK/Pods-Table SDK.debug.xcconfig"; sourceTree = "<group>"; };
+		0702A85E1576E3923519EA41 /* Pods_Table_SDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Table_SDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BFCA5FD4E5D66CFB092A7D4 /* Pods-Table SDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Table SDK.release.xcconfig"; path = "Target Support Files/Pods-Table SDK/Pods-Table SDK.release.xcconfig"; sourceTree = "<group>"; };
+		7925C37163929B5D917CBEC4 /* Pods-Table SDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Table SDK.debug.xcconfig"; path = "Target Support Files/Pods-Table SDK/Pods-Table SDK.debug.xcconfig"; sourceTree = "<group>"; };
 		833F9B662552E2210009CA61 /* JitsiVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitsiVideoVC.swift; sourceTree = "<group>"; };
 		833F9B6A2552E22E0009CA61 /* JitsiVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitsiVideoModel.swift; sourceTree = "<group>"; };
-		8B7DB4D10A8A7E0D6388A54F /* Pods_Table_SDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Table_SDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5A7C3424F7F06900E89273 /* TableSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TableSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5A7C3724F7F06900E89273 /* Table_SDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Table_SDK.h; sourceTree = "<group>"; };
 		CE5A7C3824F7F06900E89273 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F39A55B0FDA01191F8A411E6 /* Pods_Table_SDK.framework in Frameworks */,
+				DFACF4327B435B1A35303C7D /* Pods_Table_SDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,8 +123,8 @@
 		6CDBBD12852C8DDEB1F9A065 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6A754D98621CEBF573122C53 /* Pods-Table SDK.debug.xcconfig */,
-				0CEE8B4B9D8B43952FB4537B /* Pods-Table SDK.release.xcconfig */,
+				7925C37163929B5D917CBEC4 /* Pods-Table SDK.debug.xcconfig */,
+				6BFCA5FD4E5D66CFB092A7D4 /* Pods-Table SDK.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -138,10 +138,10 @@
 			path = JitsiVideo;
 			sourceTree = "<group>";
 		};
-		B9AB41FA74470E39BFE8EAB0 /* Frameworks */ = {
+		85A96D007EE769C135FB9013 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8B7DB4D10A8A7E0D6388A54F /* Pods_Table_SDK.framework */,
+				0702A85E1576E3923519EA41 /* Pods_Table_SDK.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -152,7 +152,7 @@
 				CE5A7C3624F7F06900E89273 /* Table SDK */,
 				CE5A7C3524F7F06900E89273 /* Products */,
 				6CDBBD12852C8DDEB1F9A065 /* Pods */,
-				B9AB41FA74470E39BFE8EAB0 /* Frameworks */,
+				85A96D007EE769C135FB9013 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -434,7 +434,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE5A7C3C24F7F06900E89273 /* Build configuration list for PBXNativeTarget "Table SDK" */;
 			buildPhases = (
-				725FA4F37625568E966BB385 /* [CP] Check Pods Manifest.lock */,
+				FBFEFC90D2C289641D3523E9 /* [CP] Check Pods Manifest.lock */,
 				CE5A7C2F24F7F06900E89273 /* Headers */,
 				CE5A7C3024F7F06900E89273 /* Sources */,
 				CE5A7C3124F7F06900E89273 /* Frameworks */,
@@ -495,7 +495,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		725FA4F37625568E966BB385 /* [CP] Check Pods Manifest.lock */ = {
+		FBFEFC90D2C289641D3523E9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -606,6 +606,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -669,6 +670,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -693,8 +695,9 @@
 		};
 		CE5A7C3D24F7F06900E89273 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A754D98621CEBF573122C53 /* Pods-Table SDK.debug.xcconfig */;
+			baseConfigurationReference = 7925C37163929B5D917CBEC4 /* Pods-Table SDK.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;
@@ -722,8 +725,9 @@
 		};
 		CE5A7C3E24F7F06900E89273 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0CEE8B4B9D8B43952FB4537B /* Pods-Table SDK.release.xcconfig */;
+			baseConfigurationReference = 6BFCA5FD4E5D66CFB092A7D4 /* Pods-Table SDK.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;

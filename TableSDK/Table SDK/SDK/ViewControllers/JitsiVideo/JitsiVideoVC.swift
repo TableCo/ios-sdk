@@ -10,17 +10,19 @@ import Foundation
 import UIKit
 import JitsiMeet
 
-class JitsiVideoVC: UIViewController {
-override func viewDidLoad() {
-    super.viewDidLoad()
+class JitsiVideoVC: UIViewController, JitsiMeetViewDelegate {
+    @IBOutlet var jitsiMeetView: JitsiMeetView!
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
 
-    let jitsiMeetView = view as? JitsiMeetView
+    
     jitsiMeetView?.delegate = self
 
     let options = JitsiMeetConferenceOptions.fromBuilder({ builder in
-        builder?.serverURL = URL(string: "https://meet.jit.si")
-        builder?.room = "test123"
-        builder?.audioOnly = true
+        builder.serverURL = URL(string: "https://meet.jit.si")
+        builder.room = "ForwardIntakesInvokeBesides"
+        builder.audioOnly = true
     })
 
     jitsiMeetView?.join(options)
