@@ -12,6 +12,8 @@ import JitsiMeet
 
 class JitsiVideoVC: UIViewController, JitsiMeetViewDelegate {
     @IBOutlet var jitsiMeetView: JitsiMeetView!
+    var roomID = ""
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()

@@ -234,6 +234,7 @@ extension ConversationVC: WKUIDelegate, WKNavigationDelegate{
 // MARK: - Webview Script Handler
 extension ConversationVC: WKScriptMessageHandler{
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        print("message recieved", message.name)
         if message.name == "videocall"{
             if !isCallStarted{
                 let vc = VideoVC.instantiateFromAppStoryBoard(appStoryBorad: .TableMainBoard)
