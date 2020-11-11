@@ -57,7 +57,7 @@ extension Table {
             guard let token = token else { return }
             
             Table.instance.sendNotificationToken(token: token, onSuccessTokenCompletion: {
-                print("Notifiction token sended")
+                print("Notifiction token sent")
             }) { (code, errorMessage) in
                 print("Notification token error:\(String(describing: code)), ErrorMessage: \(String(describing: errorMessage))")
             }
@@ -97,7 +97,7 @@ extension Table {
         NetworkManager.instance.authToken = ""
     }
     
-    public static func showConversationList(parentViewController: UIViewController, tableId: String? = nil, onFailureCompletion: ((_ errorCode: Int?, _ details: String?) -> Void)?) {
+    public static func showConversationList(parentViewController: UIViewController, tableId: String? = nil, payload: [AnyHashable: Any]? = [:], onFailureCompletion: ((_ errorCode: Int?, _ details: String?) -> Void)?) {
         guard Table.instance.isAuthentificated else {
             onFailureCompletion?(Message.ErrorMessages.userIdEmpty.code, Message.ErrorMessages.userIdEmpty.message)
             return
@@ -106,7 +106,12 @@ extension Table {
         let navVC = UINavigationController()
         navVC.modalPresentationStyle = .fullScreen
         let vc = ConversationVC.instantiateFromAppStoryBoard(appStoryBorad: .TableMainBoard)
-        if let tableId = tableId {
+        if (payload != [:]) {
+            vc.hasPayload = true
+            vc.isFromNotification = true
+            vc.payload = payload
+        }
+        else if let tableId = tableId {
             vc.isFromNotification = true
             vc.tableId = tableId
         }

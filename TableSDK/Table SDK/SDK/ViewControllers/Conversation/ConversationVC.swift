@@ -19,6 +19,8 @@ class ConversationVC: UIViewController,UIGestureRecognizerDelegate {
     private var viewModel = ConversationViewModel()
     var tableId = ""
     var isFromNotification = false
+    var hasPayload = false
+    var payload: [AnyHashable: Any] = [:]
     private var canDissmissVC = true
     
     override func viewDidLoad() {
@@ -197,9 +199,22 @@ extension ConversationVC: WKUIDelegate, WKNavigationDelegate{
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        let urlString = Table.instance.getWorkspaceUrl() + "/conversation/"
 //        webView.evaluateJavaScript(javaScript) { (_, err) in
         if self.isFromNotification {
-            let myURL = URL(string: Table.instance.getWorkspaceUrl() + "/conversation/" + self.tableId)
+            if hasPayload{
+            var urlString = Table.instance.getWorkspaceUrl() + "/conversation/" + self.payload["table_id"] + '?'
+                self.payload.removeValue(forKey: "table_id")
+                for (key, value) in payload {
+                    urlString = urlString + key + '=' + value + '&'
+                }
+            }
+            else {
+                urlString = urlString + self.tableId
+            }
+            print(urlString)
+
+            let myURL = URL(string: urlString)
             let myRequest = URLRequest(url: myURL!)
             self.webView.load(myRequest)
             self.isFromNotification = false

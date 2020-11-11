@@ -1,0 +1,23 @@
+PODS:
+  - OpenTok (2.18.1)
+  - TableSDK (0.1.5):
+    - OpenTok
+
+DEPENDENCIES:
+  - TableSDK (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - OpenTok
+
+EXTERNAL SOURCES:
+  TableSDK:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  OpenTok: 2a816f5d77fbf2e2ebb5aec841bd21fb7dc7737b
+  TableSDK: 328ede358a31b52fb302ffe33d7703700ec9d628
+
+PODFILE CHECKSUM: b6d81deb66cac1d493429a0e9a0368cd64de3a41
+
+COCOAPODS: 1.10.0

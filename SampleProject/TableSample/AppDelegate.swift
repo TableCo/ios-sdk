@@ -90,7 +90,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         let userInfo = response.notification.request.content.userInfo
         if let tableId = userInfo["table_id"] as? String {
             if let rootViewController = self.window?.rootViewController as? UINavigationController {
-                Table.showConversationList(parentViewController: rootViewController, tableId: tableId) { (errorCode, errorMessage) in
+                Table.showConversationList(parentViewController: rootViewController, tableId: tableId, userInfo: userInfo) { (errorCode, errorMessage) in
                     print("\(String(describing: errorCode)): \(String(describing: errorMessage))")
                 }
             }
