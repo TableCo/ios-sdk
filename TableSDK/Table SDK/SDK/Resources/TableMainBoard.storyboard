@@ -21,21 +21,6 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdw-mp-oU7">
-                                <rect key="frame" x="177" y="418" width="60" height="60"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="0Tf-62-DKR"/>
-                                    <constraint firstAttribute="width" constant="60" id="O7d-Tb-s8l"/>
-                                </constraints>
-                                <state key="normal" title="New" image="Create">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="newConversationClick:" destination="Knz-VC-2x1" eventType="touchUpInside" id="KHA-sY-Mwp"/>
-                                    <segue destination="UY7-Ep-fwS" kind="show" id="fyF-MX-oMM"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9b-yb-di3">
                                 <rect key="frame" x="329" y="703" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -56,8 +41,6 @@
                         <constraints>
                             <constraint firstItem="wqW-w0-gkj" firstAttribute="trailing" secondItem="ciL-KV-lZb" secondAttribute="trailing" id="51C-is-bfH"/>
                             <constraint firstItem="ciL-KV-lZb" firstAttribute="top" secondItem="wqW-w0-gkj" secondAttribute="top" id="Fnk-VQ-kOc"/>
-                            <constraint firstItem="bdw-mp-oU7" firstAttribute="centerY" secondItem="Qqq-Uo-vkT" secondAttribute="centerY" id="ILa-L2-EYh"/>
-                            <constraint firstItem="bdw-mp-oU7" firstAttribute="centerX" secondItem="ciL-KV-lZb" secondAttribute="centerX" id="WVr-hU-xpn"/>
                             <constraint firstItem="wqW-w0-gkj" firstAttribute="bottom" secondItem="n9b-yb-di3" secondAttribute="bottom" constant="50" id="cYy-B2-4D6"/>
                             <constraint firstItem="ciL-KV-lZb" firstAttribute="leading" secondItem="wqW-w0-gkj" secondAttribute="leading" id="iDP-KM-HsP"/>
                             <constraint firstItem="wqW-w0-gkj" firstAttribute="trailing" secondItem="n9b-yb-di3" secondAttribute="trailing" constant="25" id="lfc-ee-oCe"/>
