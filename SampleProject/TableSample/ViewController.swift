@@ -23,8 +23,8 @@ class ViewController: UIViewController {
 
     @IBAction func registerUser(_ sender: Any) {
         var userAttrib = UserAttributes()
-        userAttrib.firstName = "User"
-        userAttrib.lastName = "Name"
+        userAttrib.firstName = "IOS"
+        userAttrib.lastName = "Test"
         userAttrib.userHash = "USER_HASH"
         userAttrib.email = "app-user@gmail.com"
         Table.registerUser(withUserId: "USER_ID", userAttributes: userAttrib, onSuccessLoginCompletion: { [userAttrib, weak self] in

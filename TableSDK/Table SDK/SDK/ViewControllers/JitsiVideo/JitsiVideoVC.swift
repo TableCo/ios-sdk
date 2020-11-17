@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import JitsiMeet
 
-class JitsiVideoVC: UIViewController, JitsiMeetViewDelegate {
+class JitsiVideoVC: UIViewController  {
     @IBOutlet var jitsiMeetView: JitsiMeetView!
     var tenant = ""
     var roomID = ""
@@ -19,15 +19,14 @@ class JitsiVideoVC: UIViewController, JitsiMeetViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tokenizedURL = self.tenant + "/" + self.roomID + "?jwt=" + self.token
+        self.navigationController?.navigationBar.isHidden = true
+        let tokenizedURL = "https://8x8.vc/" + self.tenant + "/" + self.roomID + "?jwt=" + self.token
         print(tokenizedURL)
-
-     
     
     jitsiMeetView?.delegate = self
 
     let options = JitsiMeetConferenceOptions.fromBuilder({ builder in
-        builder.serverURL = URL(string: tokenizedURL)
+        builder.room = tokenizedURL
         builder.userInfo = JitsiMeetUserInfo(displayName: self.userInfo.firstName, andEmail: self.userInfo.email, andAvatar: URL(string: ""))
         builder.setFeatureFlag("invite.enabled", withBoolean: false)
         
@@ -35,4 +34,9 @@ class JitsiVideoVC: UIViewController, JitsiMeetViewDelegate {
 
     jitsiMeetView?.join(options)
 }
+    
+}
+extension JitsiVideoVC: JitsiMeetViewDelegate {
+    func conferenceTerminated(_ data: [AnyHashable : Any]!) {
+        navigationController?.popViewController(animated: true)    }
 }
