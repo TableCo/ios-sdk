@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        Table.initialize(workspaceUrl: "https://develop3.dev.table.co", apiKey: "test_key", onSuccessInitializeCompletion: {
+        Table.initialize(workspaceUrl: "https://YOUR_WORKSPACE.table.co", apiKey: "YOUR_SDK_API_KEY", onSuccessInitializeCompletion: {
             print("Table has been initialized")
         }) { (errorCode, errorMessage) in
             print("\(String(describing: errorCode)): \(String(describing: errorMessage))")
@@ -23,8 +23,8 @@ class ViewController: UIViewController {
 
     @IBAction func registerUser(_ sender: Any) {
         var userAttrib = UserAttributes()
-        userAttrib.firstName = "IOS"
-        userAttrib.lastName = "Test"
+        userAttrib.firstName = "User"
+        userAttrib.lastName = "Name"
         userAttrib.userHash = "USER_HASH"
         userAttrib.email = "app-user@gmail.com"
         Table.registerUser(withUserId: "USER_ID", userAttributes: userAttrib, onSuccessLoginCompletion: { [userAttrib, weak self] in
