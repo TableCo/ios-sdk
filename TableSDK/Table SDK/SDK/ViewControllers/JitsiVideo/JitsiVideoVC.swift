@@ -12,6 +12,7 @@ import JitsiMeet
 
 class JitsiVideoVC: UIViewController  {
     @IBOutlet var jitsiMeetView: JitsiMeetView!
+    var server = ""
     var tenant = ""
     var roomID = ""
     var token = ""
@@ -20,7 +21,7 @@ class JitsiVideoVC: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        let tokenizedURL = "https://8x8.vc/" + self.tenant + "/" + self.roomID + "?jwt=" + self.token
+        let tokenizedURL = "https://" + self.server + "/" + self.tenant + "/" + self.roomID + "?jwt=" + self.token
         print(tokenizedURL)
     
     jitsiMeetView?.delegate = self

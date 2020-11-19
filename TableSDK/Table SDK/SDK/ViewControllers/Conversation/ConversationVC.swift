@@ -258,12 +258,16 @@ extension ConversationVC: WKScriptMessageHandler{
             if !isCallStarted{
                 let vc = JitsiVideoVC.instantiateFromAppStoryBoard(appStoryBorad: .TableMainBoard)
                 if let data = message.body as? [String:Any]{
+                    guard let server = data["server"] as? String else {
+                        self.showAlert("", message: "Server not found")
+                        return
+                    }
                     guard let tenant = data["tenant"] as? String else {
-                        self.showAlert("", message: "SessionId not found")
+                        self.showAlert("", message: "Tenant not found")
                         return
                     }
                     guard let roomID = data["roomID"] as? String else {
-                        self.showAlert("", message: "roomID not found")
+                        self.showAlert("", message: "RoomID not found")
                         return
                     }
                     guard let jwt = data["jwt"] as? String else {
@@ -272,6 +276,7 @@ extension ConversationVC: WKScriptMessageHandler{
                     }
                     let userInfo = Table.getUserInfo()
                     vc.userInfo = userInfo
+                    vc.server = server
                     vc.tenant = tenant
                     vc.roomID = roomID
                     vc.token = jwt
