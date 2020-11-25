@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +19,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciL-KV-lZb">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9b-yb-di3">
                                 <rect key="frame" x="329" y="703" width="60" height="60"/>
@@ -34,7 +36,8 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="wqW-w0-gkj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="wqW-w0-gkj" firstAttribute="trailing" secondItem="ciL-KV-lZb" secondAttribute="trailing" id="51C-is-bfH"/>
                             <constraint firstItem="ciL-KV-lZb" firstAttribute="top" secondItem="wqW-w0-gkj" secondAttribute="top" id="Fnk-VQ-kOc"/>
@@ -43,7 +46,6 @@
                             <constraint firstItem="wqW-w0-gkj" firstAttribute="trailing" secondItem="n9b-yb-di3" secondAttribute="trailing" constant="25" id="lfc-ee-oCe"/>
                             <constraint firstItem="wqW-w0-gkj" firstAttribute="bottom" secondItem="ciL-KV-lZb" secondAttribute="bottom" id="qCD-VM-WhP"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="wqW-w0-gkj"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="IWI-uk-xng">
@@ -74,13 +76,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="VDb-aj-SDy">
-                                <rect key="frame" x="110.5" y="756" width="193" height="90"/>
+                                <rect key="frame" x="110" y="756" width="194" height="90"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="SdC-2V-Uhk">
-                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="90"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="82" height="90"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKF-vn-u3c">
-                                                <rect key="frame" x="0.0" y="0.0" width="81.5" height="72"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="82" height="72"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="ic_cam_change"/>
                                                 <connections>
@@ -88,7 +90,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flip Camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32i-EJ-z52">
-                                                <rect key="frame" x="0.0" y="72" width="81.5" height="18"/>
+                                                <rect key="frame" x="0.0" y="72" width="82" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -96,10 +98,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="MBf-3M-8vj">
-                                        <rect key="frame" x="111.5" y="0.0" width="81.5" height="90"/>
+                                        <rect key="frame" x="112" y="0.0" width="82" height="90"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgV-sD-yDE">
-                                                <rect key="frame" x="0.0" y="0.0" width="81.5" height="72"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="82" height="72"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="ic_call"/>
                                                 <connections>
@@ -107,7 +109,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Call" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQT-Kf-ENm">
-                                                <rect key="frame" x="0.0" y="72" width="81.5" height="18"/>
+                                                <rect key="frame" x="0.0" y="72" width="82" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -115,15 +117,15 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ApC-P0-3n6"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VDb-aj-SDy" firstAttribute="centerX" secondItem="Ess-HU-RGZ" secondAttribute="centerX" id="Hq9-yk-o7L"/>
                             <constraint firstAttribute="bottom" secondItem="VDb-aj-SDy" secondAttribute="bottom" constant="50" id="QVn-dd-zdI"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ApC-P0-3n6"/>
                     </view>
                     <navigationItem key="navigationItem" id="nT8-m6-9Ch"/>
                     <connections>
@@ -155,11 +157,36 @@
             </objects>
             <point key="canvasLocation" x="2630.434782608696" y="75.669642857142847"/>
         </scene>
+        <!--JitsiVideoVC-->
+        <scene sceneID="rbP-Nc-pnP">
+            <objects>
+                <viewController storyboardIdentifier="JitsiVideoVC" id="UY7-Ep-fwS" userLabel="JitsiVideoVC" customClass="JitsiVideoVC" customModule="TableSDK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="exy-1C-PMW" userLabel="View" customClass="JitsiMeetView">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Vzk-sH-Ulg"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8eW-m5-gX3"/>
+                    <connections>
+                        <outlet property="jitsiMeetView" destination="exy-1C-PMW" id="bg5-Pe-mvM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dVw-vP-rNH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5417" y="76"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Back.png" width="9" height="15"/>
         <image name="Create" width="84" height="84"/>
         <image name="ic_call" width="72" height="72"/>
         <image name="ic_cam_change" width="72" height="72"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

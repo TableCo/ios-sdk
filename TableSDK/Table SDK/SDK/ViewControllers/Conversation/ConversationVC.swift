@@ -85,6 +85,7 @@ class ConversationVC: UIViewController,UIGestureRecognizerDelegate {
         
         contentController.addUserScript(ajaxHandler)
         contentController.add(self, name: "videocall")
+        contentController.add(self, name: "jitsicall")
         webConfiguration.userContentController = contentController
         
         let customFrame = CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: 0.0, height: self.webViewContainer.frame.size.height))
@@ -234,6 +235,7 @@ extension ConversationVC: WKUIDelegate, WKNavigationDelegate{
 // MARK: - Webview Script Handler
 extension ConversationVC: WKScriptMessageHandler{
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        print("message recieved", message.name, message.body)
         if message.name == "videocall"{
             if !isCallStarted{
                 let vc = VideoVC.instantiateFromAppStoryBoard(appStoryBorad: .TableMainBoard)
@@ -248,6 +250,36 @@ extension ConversationVC: WKScriptMessageHandler{
                     }
                     vc.kSessionId = sessionId
                     vc.kToken = token
+                    navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        }
+       else if message.name == "jitsicall"{
+            if !isCallStarted{
+                let vc = JitsiVideoVC.instantiateFromAppStoryBoard(appStoryBorad: .TableMainBoard)
+                if let data = message.body as? [String:Any]{
+                    guard let server = data["server"] as? String else {
+                        self.showAlert("", message: "Server not found")
+                        return
+                    }
+                    guard let tenant = data["tenant"] as? String else {
+                        self.showAlert("", message: "Tenant not found")
+                        return
+                    }
+                    guard let roomID = data["roomID"] as? String else {
+                        self.showAlert("", message: "RoomID not found")
+                        return
+                    }
+                    guard let jwt = data["jwt"] as? String else {
+                        self.showAlert("", message: "Token not found")
+                        return
+                    }
+                    let userInfo = Table.getUserInfo()
+                    vc.userInfo = userInfo
+                    vc.server = server
+                    vc.tenant = tenant
+                    vc.roomID = roomID
+                    vc.token = jwt
                     navigationController?.pushViewController(vc, animated: true)
                 }
             }
