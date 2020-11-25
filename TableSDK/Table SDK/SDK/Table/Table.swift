@@ -117,6 +117,9 @@ extension Table {
     public static func updateNotificationToken(token: String) {
         Table.instance.tableData.notificationToken = token
     }
+    public static func getUserInfo() -> UserAttributes {
+        return Table.instance.tableData.userAttributes
+    }
 }
 
 //MARK: -Private methods

@@ -16,6 +16,7 @@ Pod::Spec.new do |spec|
   spec.resources    = 'TableSDK/Table\ SDK/SDK/Resources/**/*'
   spec.swift_version = ['5.0', '5.1', '5.2', '5.3']
   spec.dependency 'OpenTok'
+  spec.dependency 'JitsiMeetSDK'
   spec.static_framework = true
 
  # https://github.com/CocoaPods/CocoaPods/issues/10065
