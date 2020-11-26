@@ -15,7 +15,7 @@ struct API {
     static let Conversation         = "/conversation?webview=ios"
     
     
-    static let NotificationTokenUpdate           = "/user-service/user/add_contact_apns_device_token"
+    static let NotificationTokenUpdate  = "/user-service/user/add_contact_apns_device_token"
     static let ConversationTitle        = "/table-service/table/"
     static let OpenTokAPIKey            = "/installation-service/installation/opentok-api-key"
     static let GoogleClientId           = "/installation-service/installation/google-client-id"
@@ -23,4 +23,5 @@ struct API {
     static let AuthUser                 = "/user-service/user/auth/sdk-chat-user"
     static let CreateConversation       = "/table-service/table"
     static let AddJpushRegistrationId   = "/user-service/user/add_contact_jpush_device_token"
+    static let GetTable                 = "/table-service/table-for-experience"
 }
