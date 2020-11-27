@@ -24,4 +24,5 @@ struct API {
     static let CreateConversation       = "/table-service/table"
     static let AddJpushRegistrationId   = "/user-service/user/add_contact_jpush_device_token"
     static let GetTable                 = "/table-service/table-for-experience"
+    static let Loading                  = "/static/mobile-progress.html"
 }

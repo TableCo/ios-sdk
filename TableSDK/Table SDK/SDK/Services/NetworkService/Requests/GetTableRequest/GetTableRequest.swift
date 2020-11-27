@@ -16,7 +16,7 @@ class GetTableRequest: BaseRequest {
         
         self.path.append(GetTableRequest.path)
         self.method = .post
-        self.headersType = .formData
+        self.headersType = .withJSON
         self.parametersType = .encodeParametersType
         
         self.data = model.parameters

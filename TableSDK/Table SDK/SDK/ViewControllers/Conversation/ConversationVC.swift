@@ -11,7 +11,6 @@ import WebKit
 
 class ConversationVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var btnCreate: UIButton!
-
     @IBOutlet var webViewContainer: UIView!
     @IBOutlet var btnBack: UIBarButtonItem!
     var webView: WKWebView!
@@ -20,10 +19,12 @@ class ConversationVC: UIViewController, UIGestureRecognizerDelegate {
     var tableId = ""
     var isFromNotification = false
     private var canDissmissVC = true
-    var initialConv = ""
+    var webViewUrl = ""
+    typealias CompletionHandler = (_ success: Bool) -> Void
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        webViewUrl = Table.instance.getWorkspaceUrl() + API.Loading
         navigationController?.setNavigationBarHidden(false, animated: false)
         navigationItem.setHidesBackButton(true, animated: false)
         title = "All Conversations"
@@ -34,8 +35,26 @@ class ConversationVC: UIViewController, UIGestureRecognizerDelegate {
         } else {
             // Fallback on earlier versions
         }
-        initialConv = createIntialConversation()
+        
         setupWebView()
+        
+        createIntialConversation(completionHandler: { (success) -> Void in
+
+            if success {
+                let myURL = URL(string: self.webViewUrl)
+                let myRequest = URLRequest(url: myURL!)
+                self.webView.load(myRequest)
+                
+            } else {
+                if let userToken = Table.instance.getToken() {
+                    self.webViewUrl = Table.instance.getWorkspaceUrl() + API.Conversation + "&token=" + userToken
+                    let myURL = URL(string: self.webViewUrl)
+                    let myRequest = URLRequest(url: myURL!)
+                    self.webView.load(myRequest)
+                }
+                
+            }
+        })
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -102,29 +121,28 @@ class ConversationVC: UIViewController, UIGestureRecognizerDelegate {
         webView.uiDelegate = self
         webView.navigationDelegate = self
 
-        let myURL = URL(string: initialConv)
+        let myURL = URL(string: webViewUrl)
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
     }
 
     // MARK: - Initial Load
 
-    func createIntialConversation() -> String {
+    func createIntialConversation(completionHandler: @escaping CompletionHandler) {
         var myURL = ""
-        if let userToken = Table.instance.getToken() {
-            myURL = Table.instance.getWorkspaceUrl() + API.Conversation + "&token=" + userToken
-        }
         let experienceShortCode = Table.instance.getUserExperienceShortCode()
         viewModel.tryGetTable(experienceShortCode: "H8o296")
-        viewModel.getTableSuccess = { tableId in
-            guard let tableId = tableId else { return }
-            myURL = Table.instance.getWorkspaceUrl() + "/conversation/" + tableId
+        viewModel.getTableSuccess = { tableID in
+            guard let tableID = tableID else { return }
+            myURL = Table.instance.getWorkspaceUrl() + "/conversation/" + tableID
+            self.webViewUrl = myURL
+            completionHandler(true)
         }
 
-        viewModel.getTableFailed = { error in
-            print(error)
+        viewModel.getTableFailed = { _ in
+            completionHandler(false)
+
         }
-        return myURL
     }
 
     // MARK: - Button Action
