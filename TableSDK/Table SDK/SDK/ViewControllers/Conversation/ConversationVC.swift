@@ -131,7 +131,7 @@ class ConversationVC: UIViewController, UIGestureRecognizerDelegate {
     func createIntialConversation(completionHandler: @escaping CompletionHandler) {
         var myURL = ""
         let experienceShortCode = Table.instance.getUserExperienceShortCode()
-        viewModel.tryGetTable(experienceShortCode: "H8o296")
+        viewModel.tryGetTable(experienceShortCode: experienceShortCode)
         viewModel.getTableSuccess = { tableID in
             guard let tableID = tableID else { return }
             myURL = Table.instance.getWorkspaceUrl() + "/conversation/" + tableID
