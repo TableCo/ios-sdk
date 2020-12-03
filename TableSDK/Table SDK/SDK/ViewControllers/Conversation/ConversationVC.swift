@@ -20,7 +20,6 @@ class ConversationVC: UIViewController,UIGestureRecognizerDelegate {
     var tableId = ""
     var isFromNotification = false
     private var canDissmissVC = true
-    var hungup = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,25 +35,18 @@ class ConversationVC: UIViewController,UIGestureRecognizerDelegate {
             // Fallback on earlier versions
         }
         setupWebView()
-        
     }
     
     @objc func onDidHangupCall(_ notification:Notification) {
-        // Do something now
-        self.hungup = true;
+        let js = "window.TableCommand('jitsi-hangup', 1);"
+        self.webView.evaluateJavaScript(js)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkBackItems()
         setupCreateButton()
-        setupNavigationBar()
-        if self.hungup{
-            let js = "window.TableCommand('jitsi-hangup', 1);"
-            let jsScript = WKUserScript(source: js, injectionTime: .atDocumentStart, forMainFrameOnly: false)
-            self.webView.configuration.userContentController.addUserScript(jsScript)
-            self.hungup = false
-        }
+        setupNavigationBar() 
     }
     
     override func viewWillDisappear(_ animated: Bool) {
