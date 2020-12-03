@@ -48,5 +48,7 @@ class JitsiVideoVC: UIViewController  {
 }
 extension JitsiVideoVC: JitsiMeetViewDelegate {
     func conferenceTerminated(_ data: [AnyHashable : Any]!) {
-        navigationController?.popViewController(animated: true)    }
+        navigationController?.popViewController(animated: true)
+        NotificationCenter.default.post(name: Notification.Name("didHangupCall"), object: nil)
+    }
 }

@@ -20,6 +20,7 @@ class ConversationVC: UIViewController,UIGestureRecognizerDelegate {
     var tableId = ""
     var isFromNotification = false
     private var canDissmissVC = true
+    var hungup = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class ConversationVC: UIViewController,UIGestureRecognizerDelegate {
         navigationItem.setHidesBackButton(true, animated: false)
         self.title = "All Conversations"
      //   btnBack.isHidden = true
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidHangupCall(_:)), name: Notification.Name("didHangupCall"), object: nil)
         
         if #available(iOS 12.0, *) {
             self.view.backgroundColor = traitCollection.userInterfaceStyle == .light ? UIColor.white : UIColor.white
@@ -34,6 +36,12 @@ class ConversationVC: UIViewController,UIGestureRecognizerDelegate {
             // Fallback on earlier versions
         }
         setupWebView()
+        
+    }
+    
+    @objc func onDidHangupCall(_ notification:Notification) {
+        // Do something now
+        self.hungup = true;
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +49,12 @@ class ConversationVC: UIViewController,UIGestureRecognizerDelegate {
         checkBackItems()
         setupCreateButton()
         setupNavigationBar()
+        if self.hungup{
+            let js = "window.TableCommand('jitsi-hangup', 1);"
+            let jsScript = WKUserScript(source: js, injectionTime: .atDocumentStart, forMainFrameOnly: false)
+            self.webView.configuration.userContentController.addUserScript(jsScript)
+            self.hungup = false
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,7 +64,6 @@ class ConversationVC: UIViewController,UIGestureRecognizerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         viewModel.checkLoggedIn { (isLoggedIn) in
             if (!isLoggedIn) {
                 // Reset back to the first screen
