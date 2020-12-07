@@ -27,9 +27,10 @@ class ConversationVC: UIViewController, UIGestureRecognizerDelegate {
         webViewUrl = Table.instance.getWorkspaceUrl() + API.Loading
         navigationController?.setNavigationBarHidden(false, animated: false)
         navigationItem.setHidesBackButton(true, animated: false)
-        title = "All Conversations"
-        //   btnBack.isHidden = true
 
+        self.title = "All Conversations"
+     //   btnBack.isHidden = true
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidHangupCall(_:)), name: Notification.Name("didHangupCall"), object: nil)
         if #available(iOS 12.0, *) {
             self.view.backgroundColor = traitCollection.userInterfaceStyle == .light ? UIColor.white : UIColor.white
         } else {
@@ -57,11 +58,18 @@ class ConversationVC: UIViewController, UIGestureRecognizerDelegate {
         })
     }
 
+    
+    @objc func onDidHangupCall(_ notification:Notification) {
+        let js = "window.TableCommand('jitsi-hangup', 1);"
+        self.webView.evaluateJavaScript(js)
+    }
+    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkBackItems()
         setupCreateButton()
-        setupNavigationBar()
+        setupNavigationBar() 
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -72,8 +80,8 @@ class ConversationVC: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        viewModel.checkLoggedIn { isLoggedIn in
-            if !isLoggedIn {
+        viewModel.checkLoggedIn { (isLoggedIn) in
+            if (!isLoggedIn) {
                 // Reset back to the first screen
                 self.dismiss(animated: false, completion: nil)
             }

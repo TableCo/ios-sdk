@@ -16,6 +16,8 @@ class JitsiVideoVC: UIViewController  {
     var tenant = ""
     var roomID = ""
     var token = ""
+    var email = ""
+    var userID = ""
     var userInfo: UserAttributes = UserAttributes()
     
     override func viewDidLoad() {
@@ -23,12 +25,19 @@ class JitsiVideoVC: UIViewController  {
         self.navigationController?.navigationBar.isHidden = true
         let tokenizedURL = "https://" + self.server + "/" + self.tenant + "/" + self.roomID + "?jwt=" + self.token
         print(tokenizedURL)
-    
+        
+        email = self.userInfo.email ?? ""
+        userID = self.userInfo.userHash ?? "anonymous"
+      
+        if (email == nil) || email.isEmpty {
+            email = "guest-user-" + userID + "@table.invalid"
+        }
+        
     jitsiMeetView?.delegate = self
 
     let options = JitsiMeetConferenceOptions.fromBuilder({ builder in
         builder.room = tokenizedURL
-        builder.userInfo = JitsiMeetUserInfo(displayName: self.userInfo.firstName, andEmail: self.userInfo.email, andAvatar: URL(string: ""))
+        builder.userInfo = JitsiMeetUserInfo(displayName: self.userInfo.firstName, andEmail: self.email, andAvatar: URL(string: ""))
         builder.setFeatureFlag("invite.enabled", withBoolean: false)
         
     })
@@ -39,5 +48,7 @@ class JitsiVideoVC: UIViewController  {
 }
 extension JitsiVideoVC: JitsiMeetViewDelegate {
     func conferenceTerminated(_ data: [AnyHashable : Any]!) {
-        navigationController?.popViewController(animated: true)    }
+        navigationController?.popViewController(animated: true)
+        NotificationCenter.default.post(name: Notification.Name("didHangupCall"), object: nil)
+    }
 }
