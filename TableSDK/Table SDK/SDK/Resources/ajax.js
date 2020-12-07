@@ -56,6 +56,9 @@
         },
         videocall: function(sessionId, token) {
             webkit.messageHandlers.videocall.postMessage({sessionId:sessionId, token:token})
+        },
+        jitsicall: function(server,tenant, roomID, jwt) {
+            webkit.messageHandlers.jitsicall.postMessage({server:server, tenant:tenant, roomID:roomID, jwt:jwt})
         }
     };
  

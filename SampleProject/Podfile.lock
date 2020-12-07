@@ -1,20 +1,27 @@
 PODS:
   - JitsiMeetSDK (2.10.2)
   - OpenTok (2.18.1)
+  - TableSDK (0.1.5):
+    - JitsiMeetSDK
+    - OpenTok
 
 DEPENDENCIES:
-  - JitsiMeetSDK
-  - OpenTok
+  - TableSDK (from `../`)
 
 SPEC REPOS:
   trunk:
     - JitsiMeetSDK
     - OpenTok
 
+EXTERNAL SOURCES:
+  TableSDK:
+    :path: "../"
+
 SPEC CHECKSUMS:
   JitsiMeetSDK: d7612d73befd3f7f51f989458a816bbd05d0bc8e
   OpenTok: 2a816f5d77fbf2e2ebb5aec841bd21fb7dc7737b
+  TableSDK: 7b57918f11de1230ae711c2181dadd623baa9659
 
-PODFILE CHECKSUM: b52db3609c17a219fc3f125f302f38fa25295069
+PODFILE CHECKSUM: b6d81deb66cac1d493429a0e9a0368cd64de3a41
 
 COCOAPODS: 1.10.0
