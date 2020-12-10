@@ -10,8 +10,8 @@
 	};
 
 	XHR.prototype.send = function(data) {
-    	var self = this;
-    	var url = this._url;
+		var self = this;
+		var url = this._url;
 		var oldOnReadyStateChange;
 
 		function onReadyStateChange() {
@@ -24,14 +24,14 @@
 		}
 
 		if(url == 'https://app.table.co/api/user/signin') {
- 			if(this.addEventListener) {
+			if(this.addEventListener) {
 				this.addEventListener("readystatechange", onReadyStateChange, false);
 			} else {
 				oldOnReadyStateChange = this.onreadystatechange;
 				this.onreadystatechange = onReadyStateChange;
 			}
-        }
-        
+		}
+
 		send.call(this, data);
 	}
 })(XMLHttpRequest);
@@ -49,17 +49,21 @@
 			return response;
 		});
 	};
- 
-    window.mobile = {
-        setUser: function(user) {
-            webkit.messageHandlers.ajax.postMessage(user);
-        },
-        videocall: function(sessionId, token) {
-            webkit.messageHandlers.videocall.postMessage({sessionId:sessionId, token:token})
-        },
-        jitsicall: function(server,tenant, roomID, jwt) {
-            webkit.messageHandlers.jitsicall.postMessage({server:server, tenant:tenant, roomID:roomID, jwt:jwt})
-        }
-    };
- 
+
+	window.mobile = {
+		setUser: function(user) {
+			webkit.messageHandlers.ajax.postMessage(user);
+		},
+		videocall: function(sessionId, token) {
+			webkit.messageHandlers.videocall.postMessage({sessionId:sessionId, token:token})
+		},
+		jitsicall: function(server,tenant, roomID, jwt) {
+			webkit.messageHandlers.jitsicall.postMessage({server:server, tenant:tenant, roomID:roomID, jwt:jwt})
+		},
+		onLocationChange: function(location,action,pathname) {
+			webkit.messageHandlers.onLocationChange.postMessage({location:location,action:action,pathname:pathname})
+		}
+
+	};
+
 })(window);

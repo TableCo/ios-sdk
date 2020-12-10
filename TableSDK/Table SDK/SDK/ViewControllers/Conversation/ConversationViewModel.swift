@@ -21,9 +21,17 @@ class ConversationViewModel {
     var createConversationSuccess: ((_ conversationId: String?) -> Void)?
     var createConversationFailed: ((_ error: Error?) -> Void)?
     
+    //get table
+    private var getTableRequest: RequestHelper<GetTableRequestModel, GetTableResponseModel>?
+    private var getTableRequestModel = GetTableRequestModel()
+    var getTableSuccess: ((_ tableId: String?) -> Void)?
+    var getTableFailed: ((_ error: Error?) -> Void)?
+    
+    
     init() {
         setupGeatheaderPart()
         setupCreateConversationPart()
+        setupGetTablePart()
     }
     
     //get conversation title
@@ -87,7 +95,6 @@ class ConversationViewModel {
             self?.createConversationFailed?(error)
         }
     }
-    
     func tryCreateConversation(experienceShortCode: String?) {
         do {
             let paramsModel = CreateConversationParamsModel()
@@ -99,5 +106,30 @@ class ConversationViewModel {
             createConversationFailed?(nil)
         }
         
+    }
+    //get table
+    private func setupGetTablePart() {
+        getTableRequest = RequestHelper(with: getTableRequestModel)
+        getTableRequest?.loadingCallback = { [weak self] (response) in
+            let id = response?.tableId
+            self?.getTableSuccess?(id)
+        }
+        getTableRequest?.errorCallback = { [weak self] (error) in
+            guard let error = error else {
+                return
+            }
+            self?.getTableFailed?(error)
+        }
+    }
+    func tryGetTable(experienceShortCode: String?) {
+        do {
+            let paramsModel = GetTableParamsModel()
+            paramsModel.experienceShortCode = experienceShortCode
+            let encodedData = try JSONEncoder().encode(paramsModel)
+            getTableRequestModel.parameters = encodedData
+            getTableRequest?.fetch()
+        } catch {
+            getTableFailed?(nil)
+        }
     }
 }
