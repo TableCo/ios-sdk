@@ -116,7 +116,8 @@ class ConversationVC: UIViewController, UIGestureRecognizerDelegate {
 
         contentController.addUserScript(ajaxHandler)
         contentController.add(self, name: "videocall")
-        contentController.add(self, name: "onLocationChanged")
+        contentController.add(self, name: "jitsicall")
+        contentController.add(self, name: "onLocationChange")
         
         webConfiguration.userContentController = contentController
 
@@ -320,5 +321,39 @@ extension ConversationVC: WKScriptMessageHandler {
                 }
             }
         }
+        else if message.name == "jitsicall"{
+                    if !isCallStarted{
+                        let vc = JitsiVideoVC.instantiateFromAppStoryBoard(appStoryBorad: .TableMainBoard)
+                        if let data = message.body as? [String:Any]{
+                            guard let server = data["server"] as? String else {
+                                self.showAlert("", message: "Server not found")
+                                return
+                            }
+                            guard let tenant = data["tenant"] as? String else {
+                                self.showAlert("", message: "Tenant not found")
+                                return
+                            }
+                            guard let roomID = data["roomID"] as? String else {
+                                self.showAlert("", message: "RoomID not found")
+                                return
+                            }
+                            guard let jwt = data["jwt"] as? String else {
+                                self.showAlert("", message: "Token not found")
+                                return
+                            }
+                            let userInfo = Table.getUserInfo()
+                            vc.userInfo = userInfo
+                            vc.server = server
+                            vc.tenant = tenant
+                            vc.roomID = roomID
+                            vc.token = jwt
+                            navigationController?.pushViewController(vc, animated: true)
+                        }
+                    }
+                }
+        else if message.name == "onLocationChange"{
+            updateBackButtons()
+        }
+
     }
 }
