@@ -21,31 +21,36 @@ class ConversationVC: UIViewController, UIGestureRecognizerDelegate {
     private var canDissmissVC = true
     var webViewUrl = ""
     typealias CompletionHandler = (_ success: Bool) -> Void
+    var initalLoad = true
+    var initialBack = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        webViewUrl = Table.instance.getWorkspaceUrl() + API.Loading
+
+        if let userToken = Table.instance.getToken() {
+            webViewUrl = Table.instance.getWorkspaceUrl() + API.Loading + "&token=" + userToken
+        }
         navigationController?.setNavigationBarHidden(false, animated: false)
         navigationItem.setHidesBackButton(true, animated: false)
 
-        self.title = "All Conversations"
-     //   btnBack.isHidden = true
+        title = "Loading"
         NotificationCenter.default.addObserver(self, selector: #selector(onDidHangupCall(_:)), name: Notification.Name("didHangupCall"), object: nil)
         if #available(iOS 12.0, *) {
             self.view.backgroundColor = traitCollection.userInterfaceStyle == .light ? UIColor.white : UIColor.white
         } else {
             // Fallback on earlier versions
         }
-        
+
         setupWebView()
-        
+
         createIntialConversation(completionHandler: { (success) -> Void in
 
             if success {
                 let myURL = URL(string: self.webViewUrl)
                 let myRequest = URLRequest(url: myURL!)
                 self.webView.load(myRequest)
-                
+                self.initalLoad = true
+                self.updateBackButtons()
             } else {
                 if let userToken = Table.instance.getToken() {
                     self.webViewUrl = Table.instance.getWorkspaceUrl() + API.Conversation + "&token=" + userToken
@@ -53,23 +58,20 @@ class ConversationVC: UIViewController, UIGestureRecognizerDelegate {
                     let myRequest = URLRequest(url: myURL!)
                     self.webView.load(myRequest)
                 }
-                
             }
         })
     }
 
-    
-    @objc func onDidHangupCall(_ notification:Notification) {
+    @objc func onDidHangupCall(_ notification: Notification) {
         let js = "window.TableCommand('jitsi-hangup', 1);"
-        self.webView.evaluateJavaScript(js)
+        webView.evaluateJavaScript(js)
     }
-    
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkBackItems()
         setupCreateButton()
-        setupNavigationBar() 
+        setupNavigationBar()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -80,8 +82,8 @@ class ConversationVC: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        viewModel.checkLoggedIn { (isLoggedIn) in
-            if (!isLoggedIn) {
+        viewModel.checkLoggedIn { isLoggedIn in
+            if !isLoggedIn {
                 // Reset back to the first screen
                 self.dismiss(animated: false, completion: nil)
             }
@@ -114,6 +116,8 @@ class ConversationVC: UIViewController, UIGestureRecognizerDelegate {
 
         contentController.addUserScript(ajaxHandler)
         contentController.add(self, name: "videocall")
+        contentController.add(self, name: "onLocationChanged")
+        
         webConfiguration.userContentController = contentController
 
         let customFrame = CGRect(origin: CGPoint.zero, size: CGSize(width: 0.0, height: webViewContainer.frame.size.height))
@@ -149,7 +153,6 @@ class ConversationVC: UIViewController, UIGestureRecognizerDelegate {
 
         viewModel.getTableFailed = { _ in
             completionHandler(false)
-
         }
     }
 
@@ -177,10 +180,18 @@ class ConversationVC: UIViewController, UIGestureRecognizerDelegate {
     }
 
     @IBAction func btnBackClick(_ sender: Any) {
-        if webView.canGoBack {
-            webView.goBack()
+        if initialBack {
+            if let userToken = Table.instance.getToken() {
+                webViewUrl = Table.instance.getWorkspaceUrl() + API.Conversation + "&token=" + userToken
+                let myURL = URL(string: webViewUrl)
+                let myRequest = URLRequest(url: myURL!)
+                webView.load(myRequest)
+            }
+            initialBack = false
         } else if canDissmissVC {
             dismiss(animated: false, completion: nil)
+        } else if webView.canGoBack {
+            webView.goBack()
         }
         checkBackItems()
     }
@@ -195,37 +206,48 @@ class ConversationVC: UIViewController, UIGestureRecognizerDelegate {
     }
 
     func updateBackButtons() {
-        if webView.canGoBack {
-            if let currentURL = webView.url?.absoluteString {
-                print(currentURL)
-                viewModel.getConversationTitle(url: currentURL) { title in
-                    if !Thread.isMainThread {
-                        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.main.async { [self] in
+
+            if webView.canGoBack || self.initalLoad {
+                let allConversationsURL = Table.instance.getWorkspaceUrl() + API.Conversation + "&token=" + (Table.instance.getToken() ?? "")
+                if let currentURL = webView.url?.absoluteString {
+                    print(currentURL)
+                    viewModel.getConversationTitle(url: currentURL) { title in
+                        if !Thread.isMainThread {
+                            DispatchQueue.main.async { [weak self] in
+                                if let title = title {
+                                    self?.title = title
+                                } else {
+                                    self?.title = "Conversation"
+                                }
+                            }
+                        } else {
                             if let title = title {
-                                self?.title = title
+                                self.title = title
                             } else {
-                                self?.title = "Conversation"
+                                self.title = "Conversation"
                             }
                         }
-                    } else {
-                        if let title = title {
-                            self.title = title
-                        } else {
-                            self.title = "Conversation"
-                        }
+                    }
+                    if currentURL == allConversationsURL {
+                        btnCreate.isHidden = false
+                        canDissmissVC = true
+                        self.title = "All Conversations"
+                        
+                        
+
+                    }
+                    else{
+                        btnCreate.isHidden = true
+                        canDissmissVC = false
                     }
                 }
+                //   btnBack.isHidden = false
+
+                tapTimer?.invalidate()
+                self.initalLoad = false
             }
-            //   btnBack.isHidden = false
-            canDissmissVC = false
-            btnCreate.isHidden = true
-            tapTimer?.invalidate()
-        } else {
-            title = "All Conversations"
-            //   btnBack.isHidden = true
-            canDissmissVC = true
-            btnCreate.isHidden = false
-            checkBackItems()
+            
         }
     }
 }
@@ -235,7 +257,7 @@ class ConversationVC: UIViewController, UIGestureRecognizerDelegate {
 extension ConversationVC: WKUIDelegate, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         DispatchQueue.main.async {
-            //    APIManager.shared.showIndicator()
+            self.updateBackButtons()
         }
     }
 
@@ -250,10 +272,9 @@ extension ConversationVC: WKUIDelegate, WKNavigationDelegate {
         NSObject.load()
 
 //        }
-        DispatchQueue.main.async {
-            //       APIManager.shared.hideIndicator()
-            self.checkBackItems()
-        }
+
+        //       APIManager.shared.hideIndicator()
+       
     }
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
@@ -263,6 +284,7 @@ extension ConversationVC: WKUIDelegate, WKNavigationDelegate {
     }
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+      
         if navigationAction.navigationType == .linkActivated {
             if let url = navigationAction.request.url, UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url)
@@ -271,6 +293,8 @@ extension ConversationVC: WKUIDelegate, WKNavigationDelegate {
         } else {
             decisionHandler(.allow)
         }
+        updateBackButtons()
+       
     }
 }
 
