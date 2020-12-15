@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = 'TableSDK'
-  spec.version      = '1.0.0'
+  spec.version      = '0.5.0'
   spec.summary      = 'TableSDK framework'
   spec.description  = 'An iOS Swift SDK for TABLE.co.'
 
