@@ -341,12 +341,14 @@ extension ConversationVC: WKScriptMessageHandler {
                                 self.showAlert("", message: "Token not found")
                                 return
                             }
+                            let audioCall = data["audio_call"] as? Bool ?? false
                             let userInfo = Table.getUserInfo()
                             vc.userInfo = userInfo
                             vc.server = server
                             vc.tenant = tenant
                             vc.roomID = roomID
                             vc.token = jwt
+                            vc.audioCall = audioCall
                             navigationController?.pushViewController(vc, animated: true)
                         }
                     }
