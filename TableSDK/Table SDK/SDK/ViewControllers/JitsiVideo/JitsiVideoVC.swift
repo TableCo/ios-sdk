@@ -40,7 +40,7 @@ class JitsiVideoVC: UIViewController  {
         builder.room = tokenizedURL
         builder.userInfo = JitsiMeetUserInfo(displayName: self.userInfo.firstName, andEmail: self.email, andAvatar: URL(string: ""))
         builder.setFeatureFlag("invite.enabled", withBoolean: false)
-        builder.audioOnly = audioCall
+        builder.audioOnly = self.audioCall
         
     })
 
