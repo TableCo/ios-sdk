@@ -9,7 +9,6 @@ target 'Table SDK' do
 
   # Pods for Table SDK
   pod 'JitsiMeetSDK'
-  pod 'OpenTok'
  
 
 

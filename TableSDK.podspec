@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = 'TableSDK'
-  spec.version      = '0.5.0'
+  spec.version      = '1.0.0'
   spec.summary      = 'TableSDK framework'
   spec.description  = 'An iOS Swift SDK for TABLE.co.'
 
@@ -15,7 +15,6 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '13.0'
   spec.resources    = 'TableSDK/Table\ SDK/SDK/Resources/**/*'
   spec.swift_version = ['5.0', '5.1', '5.2', '5.3']
-  spec.dependency 'OpenTok'
   spec.dependency 'JitsiMeetSDK'
   spec.static_framework = true
 
