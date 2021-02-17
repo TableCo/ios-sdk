@@ -57,8 +57,8 @@
 		videocall: function(sessionId, token) {
 			webkit.messageHandlers.videocall.postMessage({sessionId:sessionId, token:token})
 		},
-		jitsicall: function(server,tenant, roomID, jwt) {
-			webkit.messageHandlers.jitsicall.postMessage({server:server, tenant:tenant, roomID:roomID, jwt:jwt})
+		jitsicall: function(server,tenant, roomID, jwt, audio_call) {
+			webkit.messageHandlers.jitsicall.postMessage({server:server, tenant:tenant, roomID:roomID, jwt:jwt, audio_call:audio_call})
 		},
 		onLocationChange: function(location,action,pathname) {
 			webkit.messageHandlers.onLocationChange.postMessage({location:location,action:action,pathname:pathname})
