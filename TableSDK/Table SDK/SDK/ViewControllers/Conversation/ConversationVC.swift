@@ -303,25 +303,7 @@ extension ConversationVC: WKUIDelegate, WKNavigationDelegate {
 
 extension ConversationVC: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if message.name == "videocall" {
-            if !isCallStarted {
-                let vc = VideoVC.instantiateFromAppStoryBoard(appStoryBorad: .TableMainBoard)
-                if let data = message.body as? [String: Any] {
-                    guard let sessionId = data["sessionId"] as? String else {
-                        showAlert("", message: "SessionId not found")
-                        return
-                    }
-                    guard let token = data["token"] as? String else {
-                        showAlert("", message: "Token not found")
-                        return
-                    }
-                    vc.kSessionId = sessionId
-                    vc.kToken = token
-                    navigationController?.pushViewController(vc, animated: true)
-                }
-            }
-        }
-        else if message.name == "jitsicall"{
+        if message.name == "jitsicall"{
                     if !isCallStarted{
                         let vc = JitsiVideoVC.instantiateFromAppStoryBoard(appStoryBorad: .TableMainBoard)
                         if let data = message.body as? [String:Any]{
@@ -341,12 +323,14 @@ extension ConversationVC: WKScriptMessageHandler {
                                 self.showAlert("", message: "Token not found")
                                 return
                             }
+                            let audioCall = data["audio_call"] as? Bool ?? false
                             let userInfo = Table.getUserInfo()
                             vc.userInfo = userInfo
                             vc.server = server
                             vc.tenant = tenant
                             vc.roomID = roomID
                             vc.token = jwt
+                            vc.audioCall = audioCall
                             navigationController?.pushViewController(vc, animated: true)
                         }
                     }

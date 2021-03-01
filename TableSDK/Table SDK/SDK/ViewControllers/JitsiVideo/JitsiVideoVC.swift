@@ -18,6 +18,7 @@ class JitsiVideoVC: UIViewController  {
     var token = ""
     var email = ""
     var userID = ""
+    var audioCall = false
     var userInfo: UserAttributes = UserAttributes()
     
     override func viewDidLoad() {
@@ -39,6 +40,7 @@ class JitsiVideoVC: UIViewController  {
         builder.room = tokenizedURL
         builder.userInfo = JitsiMeetUserInfo(displayName: self.userInfo.firstName, andEmail: self.email, andAvatar: URL(string: ""))
         builder.setFeatureFlag("invite.enabled", withBoolean: false)
+        builder.audioOnly = self.audioCall
         
     })
 
