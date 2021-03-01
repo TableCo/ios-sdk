@@ -10,8 +10,6 @@
 		833F9B672552E2210009CA61 /* JitsiVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833F9B662552E2210009CA61 /* JitsiVideoVC.swift */; };
 		833F9B6B2552E22E0009CA61 /* JitsiVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833F9B6A2552E22E0009CA61 /* JitsiVideoModel.swift */; };
 		CE5A7C3924F7F06900E89273 /* Table_SDK.h in Headers */ = {isa = PBXBuildFile; fileRef = CE5A7C3724F7F06900E89273 /* Table_SDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE5A7C7A24F7F3F900E89273 /* VideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C4224F7F3F900E89273 /* VideoVC.swift */; };
-		CE5A7C7B24F7F3F900E89273 /* VideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C4324F7F3F900E89273 /* VideoViewModel.swift */; };
 		CE5A7C7C24F7F3F900E89273 /* ConversationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C4524F7F3F900E89273 /* ConversationViewModel.swift */; };
 		CE5A7C7D24F7F3F900E89273 /* ConversationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C4624F7F3F900E89273 /* ConversationVC.swift */; };
 		CE5A7C7E24F7F3F900E89273 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C4824F7F3F900E89273 /* Constant.swift */; };
@@ -24,9 +22,6 @@
 		CE5A7C8524F7F3F900E89273 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C5224F7F3F900E89273 /* URL+Extensions.swift */; };
 		CE5A7C8624F7F3F900E89273 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C5424F7F3F900E89273 /* Message.swift */; };
 		CE5A7C8724F7F3F900E89273 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C5824F7F3F900E89273 /* NetworkManager.swift */; };
-		CE5A7C8824F7F3F900E89273 /* GetApiKeyResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C5B24F7F3F900E89273 /* GetApiKeyResponseModel.swift */; };
-		CE5A7C8924F7F3F900E89273 /* GetApiKeyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C5C24F7F3F900E89273 /* GetApiKeyRequest.swift */; };
-		CE5A7C8A24F7F3F900E89273 /* GetApiKeyRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C5D24F7F3F900E89273 /* GetApiKeyRequestModel.swift */; };
 		CE5A7C8B24F7F3F900E89273 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C5E24F7F3F900E89273 /* Endpoints.swift */; };
 		CE5A7C8C24F7F3F900E89273 /* GetHeaderResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C6024F7F3F900E89273 /* GetHeaderResponseModel.swift */; };
 		CE5A7C8D24F7F3F900E89273 /* GetHeaderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A7C6124F7F3F900E89273 /* GetHeaderRequest.swift */; };
@@ -64,8 +59,6 @@
 		CE5A7C3424F7F06900E89273 /* TableSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TableSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5A7C3724F7F06900E89273 /* Table_SDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Table_SDK.h; sourceTree = "<group>"; };
 		CE5A7C3824F7F06900E89273 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE5A7C4224F7F3F900E89273 /* VideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoVC.swift; sourceTree = "<group>"; };
-		CE5A7C4324F7F3F900E89273 /* VideoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewModel.swift; sourceTree = "<group>"; };
 		CE5A7C4524F7F3F900E89273 /* ConversationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewModel.swift; sourceTree = "<group>"; };
 		CE5A7C4624F7F3F900E89273 /* ConversationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationVC.swift; sourceTree = "<group>"; };
 		CE5A7C4824F7F3F900E89273 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -78,9 +71,6 @@
 		CE5A7C5224F7F3F900E89273 /* URL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		CE5A7C5424F7F3F900E89273 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		CE5A7C5824F7F3F900E89273 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		CE5A7C5B24F7F3F900E89273 /* GetApiKeyResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetApiKeyResponseModel.swift; sourceTree = "<group>"; };
-		CE5A7C5C24F7F3F900E89273 /* GetApiKeyRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetApiKeyRequest.swift; sourceTree = "<group>"; };
-		CE5A7C5D24F7F3F900E89273 /* GetApiKeyRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetApiKeyRequestModel.swift; sourceTree = "<group>"; };
 		CE5A7C5E24F7F3F900E89273 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		CE5A7C6024F7F3F900E89273 /* GetHeaderResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHeaderResponseModel.swift; sourceTree = "<group>"; };
 		CE5A7C6124F7F3F900E89273 /* GetHeaderRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHeaderRequest.swift; sourceTree = "<group>"; };
@@ -192,19 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				833F9B652552E20E0009CA61 /* JitsiVideo */,
-				CE5A7C4124F7F3F900E89273 /* Video */,
 				CE5A7C4424F7F3F900E89273 /* Conversation */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		CE5A7C4124F7F3F900E89273 /* Video */ = {
-			isa = PBXGroup;
-			children = (
-				CE5A7C4224F7F3F900E89273 /* VideoVC.swift */,
-				CE5A7C4324F7F3F900E89273 /* VideoViewModel.swift */,
-			);
-			path = Video;
 			sourceTree = "<group>";
 		};
 		CE5A7C4424F7F3F900E89273 /* Conversation */ = {
@@ -295,23 +275,12 @@
 			isa = PBXGroup;
 			children = (
 				CE6F8EA824F93A66002D97F0 /* NotificationsTokenRequest */,
-				CE5A7C5A24F7F3F900E89273 /* GetApiKeyRequest */,
 				CE5A7C5E24F7F3F900E89273 /* Endpoints.swift */,
 				CE5A7C5F24F7F3F900E89273 /* GetHeaderRequest */,
 				CE5A7C6324F7F3F900E89273 /* CreateConversationRequest */,
 				CE5A7C6724F7F3F900E89273 /* AuthUserRequest */,
 			);
 			path = Requests;
-			sourceTree = "<group>";
-		};
-		CE5A7C5A24F7F3F900E89273 /* GetApiKeyRequest */ = {
-			isa = PBXGroup;
-			children = (
-				CE5A7C5B24F7F3F900E89273 /* GetApiKeyResponseModel.swift */,
-				CE5A7C5C24F7F3F900E89273 /* GetApiKeyRequest.swift */,
-				CE5A7C5D24F7F3F900E89273 /* GetApiKeyRequestModel.swift */,
-			);
-			path = GetApiKeyRequest;
 			sourceTree = "<group>";
 		};
 		CE5A7C5F24F7F3F900E89273 /* GetHeaderRequest */ = {
@@ -532,9 +501,7 @@
 				CE5A7C8524F7F3F900E89273 /* URL+Extensions.swift in Sources */,
 				CE5A7C9C24F7F3F900E89273 /* TableData.swift in Sources */,
 				CE5A7C8224F7F3F900E89273 /* UIViewController+Extension.swift in Sources */,
-				CE5A7C8824F7F3F900E89273 /* GetApiKeyResponseModel.swift in Sources */,
 				CE5A7C9624F7F3F900E89273 /* PagingUrlHelper.swift in Sources */,
-				CE5A7C7B24F7F3F900E89273 /* VideoViewModel.swift in Sources */,
 				CE5A7C8024F7F3F900E89273 /* Table.swift in Sources */,
 				CE5A7C9024F7F3F900E89273 /* CreateConversationRequest.swift in Sources */,
 				CE5A7C8C24F7F3F900E89273 /* GetHeaderResponseModel.swift in Sources */,
@@ -551,15 +518,12 @@
 				CE5A7C8124F7F3F900E89273 /* UIColor+Extensions.swift in Sources */,
 				833F9B672552E2210009CA61 /* JitsiVideoVC.swift in Sources */,
 				CE5A7C8E24F7F3F900E89273 /* GetHeaderRequestModel.swift in Sources */,
-				CE5A7C8A24F7F3F900E89273 /* GetApiKeyRequestModel.swift in Sources */,
 				CE5A7C7C24F7F3F900E89273 /* ConversationViewModel.swift in Sources */,
 				CE5A7C8F24F7F3F900E89273 /* CreateConversationResponseModel.swift in Sources */,
 				CE5A7C8624F7F3F900E89273 /* Message.swift in Sources */,
 				CE5A7C8724F7F3F900E89273 /* NetworkManager.swift in Sources */,
 				CEB388122506533500237FB9 /* BundleUtils.swift in Sources */,
 				CE5A7C7E24F7F3F900E89273 /* Constant.swift in Sources */,
-				CE5A7C8924F7F3F900E89273 /* GetApiKeyRequest.swift in Sources */,
-				CE5A7C7A24F7F3F900E89273 /* VideoVC.swift in Sources */,
 				CE5A7C8B24F7F3F900E89273 /* Endpoints.swift in Sources */,
 				CE5A7C7D24F7F3F900E89273 /* ConversationVC.swift in Sources */,
 				CE5A7C8D24F7F3F900E89273 /* GetHeaderRequest.swift in Sources */,
@@ -699,7 +663,7 @@
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -712,7 +676,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 0.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Table.co.Table-SDK";
 				PRODUCT_NAME = TableSDK;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -729,7 +693,7 @@
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -742,7 +706,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 0.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Table.co.Table-SDK";
 				PRODUCT_NAME = TableSDK;
 				PROVISIONING_PROFILE_SPECIFIER = "";
